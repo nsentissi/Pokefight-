@@ -1,6 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import {Link} from "react-router-dom"
 import Colorless from "../assets/Colorless.png";
 import Dark from "../assets/Dark.png";
 import Dragon from "../assets/Dragon.png";
@@ -75,7 +76,9 @@ const Pokemonlist = () => {
               />
               <h2 className="pokemon-name">{pokemon.name.english}</h2>
               <p className="pokemon-type">{pokemon.type[0]}</p>
+              <Link to={`/pokemon/${pokemon.id}`} >
               <button className="view-more-button">View More</button>
+              </Link>
             </div>
           ))}
         </div>
