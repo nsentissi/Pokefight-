@@ -1,3 +1,69 @@
+
+.pokeIcon {
+    width: 2rem
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+  }
+  
+  .pokemon-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 300px;
+    text-align: center;
+    position: relative;
+    padding-bottom: 0.5rem;
+  }
+  
+  .pokemon-icon {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 30px;
+    height: auto;
+  }
+  
+  .pokemon-image {
+    width: 100%;
+    height: auto;
+  }
+  
+  .pokemon-name {
+    margin: 10px 0;
+    color: #333;
+  }
+  
+  .pokemon-type {
+    margin: 0;
+    color: #777;
+  }
+  
+  .view-more-button {
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .view-more-button:hover {
+    background-color: #2980b9;
+  }
+  
+  .PokeCard {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem
+    
+  }
+
 .container {
   display: flex;
   justify-content: center;
