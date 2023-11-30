@@ -1,0 +1,21 @@
+.container {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  height: 100vh;
+  border: 1px solid red;
+}
+
+.status-card {
+  border: 1px solid blue;
+  padding: 2rem;
+  height: 50%;
+  margin-top: 1rem;
+}
+
+.pokemon-img {
+  border: 1px solid blue;
+  padding: 2rem;
+  height: 50%;
+  margin-top: 1rem;
+}
