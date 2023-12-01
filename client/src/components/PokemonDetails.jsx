@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 import PokemonImage from "./PokemonImage";
 
 import { Link } from "react-router-dom";
- 
+
 import Colorless from "../assets/Colorless.png";
 import Dark from "../assets/Dark.png";
 import Dragon from "../assets/Dragon.png";
@@ -54,7 +54,7 @@ const PokemonDetails = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3000/pokemon/${id}`)
+      .get(`http://localhost:3001/pokemon/${id}`)
       .then((response) => {
         console.log(response.data);
         setPokemon(response.data);
@@ -112,15 +112,12 @@ const PokemonDetails = () => {
           <div>No Pokemon available</div>
         )}
       </div>
-      ) : (
-        // Render something if data is not available
-        <div>No Pokemon available</div>
-      )}
       <Link to={`/pokemon/battle/${pokemon.id}`}>
-      <button>Battle ! </button>
+        <button>Battle ! </button>
       </Link>
     </div>
   );
 };
+
 
 export default PokemonDetails;

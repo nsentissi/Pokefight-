@@ -11,14 +11,14 @@ const PokeFight = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios.get(`http://localhost:3000/pokemon/${id}`).then((response) => {
+    axios.get(`http://localhost:3001/pokemon/${id}`).then((response) => {
       setSelectedPokemon(response.data);
     });
 
     const randomOpponentId = Math.floor(Math.random() * 809) + 1;
 
     axios
-      .get(`http://localhost:3000/pokemon/${randomOpponentId}`)
+      .get(`http://localhost:3001/pokemon/${randomOpponentId}`)
       .then((response) => {
         setOpponentPokemon(response.data);
         setLoading(false);

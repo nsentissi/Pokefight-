@@ -50,7 +50,7 @@ const Pokemonlist = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/pokemon")
+      .get("http://localhost:3001/pokemon")
       .then((response) => {
         setPokemons(response.data);
       })
