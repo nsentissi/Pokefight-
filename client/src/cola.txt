@@ -1,0 +1,5 @@
+{/*   <img
+        className="pokemon-icon"
+        src={typeImages[pokemon.type[0]]}
+        alt="Pokemon Icon"
+      /> */}

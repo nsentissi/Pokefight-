@@ -2,7 +2,11 @@ import React from "react";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+
+import PokemonImage from "./PokemonImage";
+
 import { Link } from "react-router-dom";
+ 
 import Colorless from "../assets/Colorless.png";
 import Dark from "../assets/Dark.png";
 import Dragon from "../assets/Dragon.png";
@@ -15,7 +19,7 @@ import Metal from "../assets/Metal.png";
 import Psychic from "../assets/Psychic.png";
 import Water from "../assets/Water.png";
 import Bug from "../assets/Bug.png";
-import Normal from "../assets/Bug.png";
+import Normal from "../assets/Normal.png";
 import Poison from "../assets/Poison.png";
 import Ground from "../assets/Ground.png";
 import Rock from "../assets/Rock.png";
@@ -61,49 +65,53 @@ const PokemonDetails = () => {
   }, []);
 
   return (
-    <div className="container">
-      <div className="pokemon-img">
-        <img
-          src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${id}.png`}
-          alt={pokemon.name?.english}
-        />
-      {/*   <img
-        className="pokemon-icon"
-        src={typeImages[pokemon.type[0]]}
-        alt="Pokemon Icon"
-      /> */}
-      
-      </div>
-      {pokemon ? (
-        <div className="status-card">
-          <div>
-            {pokemon.name && <h1>{pokemon.name.english}</h1>}
-            {pokemon.id && (
-              <div>
-                <strong>ID:</strong> {pokemon.id}
-              </div>
-            )}
-
-            {pokemon.type && (
-              <div>
-                <strong>Type:</strong> {pokemon.type.join(", ")}
-               <img src={typeImages[pokemon.type[0]]} alt="" /> 
-              </div>
-            )}
-          </div>
-          <div>
-            <h3>Stats:</h3>
-            {pokemon.base && (
-              <div>
-                {Object.entries(pokemon.base).map(([key, value]) => (
-                  <div key={key}>
-                    <strong>{key}:</strong> {value}
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
+    <div className="bg">
+      <div className="container">
+        <div
+          className={`pokemon-card-details tipo-${
+            pokemon.type && pokemon.type[0].toLowerCase()
+          }`}
+        >
+          <img
+            src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${id}.png`}
+            alt={pokemon.name?.english}
+          />
         </div>
+        {pokemon ? (
+          <div
+            className={`status-card tipo-${
+              pokemon.type && pokemon.type[0].toLowerCase()
+            }`}
+          >
+            <div className="name-id-type">
+              {pokemon.name && <h1>{pokemon.name.english}</h1>}
+              {pokemon.id && (
+                <div>
+                  <strong>ID:</strong> {pokemon.id}
+                </div>
+              )}
+              {pokemon.type && (
+                <div>
+                  <strong>Type:</strong> {pokemon.type.join(", ")}
+                </div>
+              )}
+            </div>
+            <div>
+              {pokemon.base && (
+                <div className="stats">
+                  {Object.entries(pokemon.base).map(([key, value]) => (
+                    <div key={key}>
+                      <strong>{key}:</strong> {value}
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
+        ) : (
+          <div>No Pokemon available</div>
+        )}
+      </div>
       ) : (
         // Render something if data is not available
         <div>No Pokemon available</div>
