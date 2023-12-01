@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom";
 import Colorless from "../assets/Colorless.png";
 import Dark from "../assets/Dark.png";
 import Dragon from "../assets/Dragon.png";
@@ -14,7 +14,7 @@ import Metal from "../assets/Metal.png";
 import Psychic from "../assets/Psychic.png";
 import Water from "../assets/Water.png";
 import Bug from "../assets/Bug.png";
-import Normal from "../assets/Bug.png";
+import Normal from "../assets/Normal.png";
 import Poison from "../assets/Poison.png";
 import Ground from "../assets/Ground.png";
 import Rock from "../assets/Rock.png";
@@ -66,7 +66,6 @@ const Pokemonlist = () => {
               <img
                 className="pokemon-icon"
                 src={typeImages[pokemon.type[0]]}
-               
                 alt="Pokemon Icon"
               />
               <img
@@ -76,8 +75,8 @@ const Pokemonlist = () => {
               />
               <h2 className="pokemon-name">{pokemon.name.english}</h2>
               <p className="pokemon-type">{pokemon.type[0]}</p>
-              <Link to={`/pokemon/${pokemon.id}`} >
-              <button className="view-more-button">View More</button>
+              <Link to={`/pokemon/${pokemon.id}`}>
+                <button className="view-more-button">View More</button>
               </Link>
             </div>
           ))}

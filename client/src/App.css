@@ -1,87 +1,182 @@
-
 .pokeIcon {
-    width: 2rem
+  width: 2rem;
 }
 
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f0f0f0;
-    display: flex;
-  }
-  
-  .pokemon-card {
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    width: 300px;
-    text-align: center;
-    position: relative;
-    padding-bottom: 0.5rem;
-  }
-  
-  .pokemon-icon {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    width: 30px;
-    height: auto;
-  }
-  
-  .pokemon-image {
-    width: 100%;
-    height: auto;
-  }
-  
-  .pokemon-name {
-    margin: 10px 0;
-    color: #333;
-  }
-  
-  .pokemon-type {
-    margin: 0;
-    color: #777;
-  }
-  
-  .view-more-button {
-    background-color: #3498db;
-    color: #fff;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .view-more-button:hover {
-    background-color: #2980b9;
-  }
-  
-  .PokeCard {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem
-    
-  }
+  font-family: "Arial", sans-serif;
+  background-color: #f0f0f0;
+}
 
+.pokemon-card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 300px;
+  text-align: center;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.pokemon-icon {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 30px;
+  height: auto;
+}
+
+.pokemon-image {
+  width: 100%;
+  height: auto;
+}
+
+.pokemon-name {
+  margin: 10px 0;
+  color: #333;
+}
+
+.pokemon-type {
+  margin: 0;
+  color: #777;
+}
+
+.view-more-button {
+  background-color: #3498db;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.view-more-button:hover {
+  background-color: #2980b9;
+}
+
+.PokeCard {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* POKEMON DETAILS---------------------------------- */
 .container {
   display: flex;
   justify-content: center;
+  align-items: center;
+  width: auto;
   gap: 3rem;
   height: 100vh;
-  border: 1px solid red;
+}
+
+.pokemon-card-details {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  height: 50%;
+  /* overflow: hidden; */
+  /* position: relative; */
+}
+
+.pokemon-card-details > img {
+  width: 80%;
+  height: auto;
 }
 
 .status-card {
-  border: 1px solid blue;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 2rem;
   height: 50%;
-  margin-top: 1rem;
+  width: 20%;
 }
 
-.pokemon-img {
-  border: 1px solid blue;
-  padding: 2rem;
-  height: 50%;
-  margin-top: 1rem;
+.name-id-type {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.stats {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* COLORS------------------------------------------------------------------- */
+
+.tipo-electric {
+  box-shadow: 0 8px 16px rgba(248, 208, 48, 0.8); /* Amarelo para tipo elétrico */
+}
+
+.tipo-water {
+  box-shadow: 0 8px 16px rgba(104, 144, 240, 0.8); /* Azul para tipo água */
+}
+
+.tipo-fire {
+  box-shadow: 0 8px 16px rgba(240, 128, 48, 0.8); /* Laranja para tipo fogo */
+}
+
+.tipo-grass {
+  box-shadow: 0 8px 16px rgba(120, 200, 80, 0.8); /* Verde para tipo grama */
+}
+
+.tipo-ice {
+  box-shadow: 0 8px 16px rgba(152, 216, 216, 0.8); /* Azul claro para tipo gelo */
+}
+
+.tipo-fighting {
+  box-shadow: 0 8px 16px rgba(192, 48, 40, 0.8); /* Vermelho para tipo lutador */
+}
+
+.tipo-poison {
+  box-shadow: 0 8px 16px rgba(160, 64, 160, 0.8); /* Roxo para tipo veneno */
+}
+
+.tipo-ground {
+  box-shadow: 0 8px 16px rgba(224, 192, 104, 0.8); /* Marrom para tipo solo */
+}
+
+.tipo-flying {
+  box-shadow: 0 8px 16px rgba(168, 144, 240, 0.8); /* Azul claro para tipo voador */
+}
+
+.tipo-psychic {
+  box-shadow: 0 8px 16px rgba(248, 88, 136, 0.8); /* Rosa para tipo psíquico */
+}
+
+.tipo-bug {
+  box-shadow: 0 8px 16px rgba(168, 184, 32, 0.8); /* Verde para tipo inseto */
+}
+
+.tipo-rock {
+  box-shadow: 0 8px 16px rgba(184, 160, 56, 0.8); /* Amarelo para tipo pedra */
+}
+
+.tipo-ghost {
+  box-shadow: 0 8px 16px rgba(112, 88, 152, 0.8); /* Roxo escuro para tipo fantasma */
+}
+
+.tipo-dark {
+  box-shadow: 0 8px 16px rgba(112, 88, 72, 0.8); /* Marrom escuro para tipo sombrio */
+}
+
+.tipo-steel {
+  box-shadow: 0 8px 16px rgba(184, 184, 208, 0.8); /* Cinza para tipo metálico */
+}
+
+.tipo-fairy {
+  box-shadow: 0 8px 16px rgba(238, 153, 172, 0.8); /* Rosa claro para tipo fada */
 }
