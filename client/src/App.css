@@ -85,3 +85,8 @@ body {
   height: 50%;
   margin-top: 1rem;
 }
+
+.pokeArena {
+  display: flex;
+  gap: 5rem
+}
