@@ -180,3 +180,8 @@ body {
 .tipo-fairy {
   box-shadow: 0 8px 16px rgba(238, 153, 172, 0.8); /* Rosa claro para tipo fada */
 }
+
+.pokeArena {
+  display: flex;
+  gap: 5rem
+}
