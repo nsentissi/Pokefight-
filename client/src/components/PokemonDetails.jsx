@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Colorless from "../assets/Colorless.png";
 import Dark from "../assets/Dark.png";
 import Dragon from "../assets/Dragon.png";
@@ -107,6 +108,9 @@ const PokemonDetails = () => {
         // Render something if data is not available
         <div>No Pokemon available</div>
       )}
+      <Link to={`/pokemon/battle/${pokemon.id}`}>
+      <button>Battle ! </button>
+      </Link>
     </div>
   );
 };
