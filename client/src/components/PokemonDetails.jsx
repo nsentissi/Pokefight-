@@ -52,11 +52,20 @@ const PokemonDetails = () => {
     Ice,
   };
 
+  const getStatColor = (value) => {
+    if (value >= 60) {
+      return "red";
+    } else if (value >= 80) {
+      return "yellow";
+    } else {
+      return "dodgerblue";
+    }
+  };
+
   useEffect(() => {
     axios
       .get(`http://localhost:3001/pokemon/${id}`)
       .then((response) => {
-        console.log(response.data);
         setPokemon(response.data);
       })
       .catch((err) => {
@@ -101,7 +110,16 @@ const PokemonDetails = () => {
                 <div className="stats">
                   {Object.entries(pokemon.base).map(([key, value]) => (
                     <div key={key}>
-                      <strong>{key}:</strong> {value}
+                      <strong>{key}:</strong>
+                      <div className="stat-bar-container">
+                        <div
+                          className="stat-bar"
+                          style={{
+                            width: `${value}%`,
+                            backgroundColor: getStatColor(value),
+                          }}
+                        ></div>
+                      </div>
                     </div>
                   ))}
                 </div>
@@ -113,11 +131,16 @@ const PokemonDetails = () => {
         )}
       </div>
       <Link to={`/pokemon/battle/${pokemon.id}`}>
-        <button>Battle ! </button>
+        <button
+          className={`btn-battle tipo-${
+            pokemon.type && pokemon.type[0].toLowerCase()
+          }`}
+        >
+          Battle!{" "}
+        </button>
       </Link>
     </div>
   );
 };
-
 
 export default PokemonDetails;
