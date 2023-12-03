@@ -137,14 +137,6 @@ const PokeFight = () => {
                   ))}
                 </div>
               </div>
-              {/* <div className="poke-stats">
-                <p>HP: {opponentPokemon.base.HP}</p>
-                <p>Attack: {opponentPokemon.base.Attack}</p>
-                <p>Defense: {opponentPokemon.base.Defense}</p>
-                <p>Sp Attack: {opponentPokemon.base["Sp. Attack"]}</p>
-                <p>Sp Defense: {opponentPokemon.base["Sp. Defense"]}</p>
-                <p>Speed: {opponentPokemon.base.Speed}</p>
-              </div> */}
             </div>
           </div>
         </>
