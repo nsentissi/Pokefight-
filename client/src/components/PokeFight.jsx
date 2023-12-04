@@ -10,13 +10,15 @@ const PokeFight = () => {
   const [battleResult, setBattleResult] = useState("");
   const [loading, setLoading] = useState(true);
 
-const fetchData = async () => {
+  const fetchData = async () => {
     try {
       const response1 = await axios.get(`http://localhost:3001/pokemon/${id}`);
       setSelectedPokemon(response1.data);
 
       const randomOpponentId = Math.floor(Math.random() * 809) + 1;
-      const response2 = await axios.get(`http://localhost:3001/pokemon/${randomOpponentId}`);
+      const response2 = await axios.get(
+        `http://localhost:3001/pokemon/${randomOpponentId}`
+      );
       setOpponentPokemon(response2.data);
 
       setLoading(false);
@@ -35,13 +37,9 @@ const fetchData = async () => {
     }
   };
 
-  
   useEffect(() => {
     fetchData();
   }, [id]);
-
-  
-
 
   const calculateAverageStats = (pokemon) => {
     const totalStats =
@@ -70,54 +68,81 @@ const fetchData = async () => {
   };
 
   return (
- <div>
+    <div>
       {loading ? (
         <p>Loading...</p>
       ) : (
         <>
           <div className="pokeArena">
-            <div className="myPokemon">
-                
+            <div
+              className={`myPokemon tipo-${
+                selectedPokemon?.type && selectedPokemon.type[0].toLowerCase()
+              }`}
+            >
               <h2>{selectedPokemon.name.english}</h2>
               <img
                 className="pokemon-image"
                 src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${selectedPokemon.id}.png`}
                 alt={`Image of ${selectedPokemon.name.english}`}
               />
+              {/* updated the code logic for the stats with the bar colors */}
               <div>
-                <p>HP: {selectedPokemon.base.HP}</p>
-                <p>Attack: {selectedPokemon.base.Attack}</p>
-                <p>Defense: {selectedPokemon.base.Defense}</p>
-                <p>Sp Attack: {selectedPokemon.base["Sp. Attack"]}</p>
-                <p>Sp Defense: {selectedPokemon.base["Sp. Defense"]}</p>
-                <p>Speed: {selectedPokemon.base.Speed}</p>
+                <div className="stats">
+                  {Object.entries(selectedPokemon.base).map(([key, value]) => (
+                    <div key={key}>
+                      <strong>{key}:</strong>
+                      <div className="stat-bar-container">
+                        <div
+                          className="stat-bar"
+                          style={{
+                            width: `${value}%`,
+                            backgroundColor: getStatColor(value),
+                          }}
+                        ></div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
             <div className="btn-results">
-            <button className="btn-battle" onClick={handleBattleStart}>Start Battle</button>
-            {battleResult && <p>{battleResult}</p>}
-          </div>
-          <div>
-            <button>Rematch</button>
-          </div>
-            <div className="randomPokemon">
+              <button className="btn-battle" onClick={handleBattleStart}>
+                Start!
+              </button>
+              {battleResult && <p>{battleResult}</p>}
+            </div>
+            <div
+              className={`randomPokemon tipo-${
+                opponentPokemon?.type && opponentPokemon.type[0].toLowerCase()
+              }`}
+            >
               <h2>{opponentPokemon.name.english}</h2>
               <img
                 className="pokemon-image"
                 src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${opponentPokemon.id}.png`}
                 alt={`Image of ${opponentPokemon.name.english}`}
               />
+              {/* updated the code logic for the stats with the bar colors */}
               <div>
-                <p>HP: {opponentPokemon.base.HP}</p>
-                <p>Attack: {opponentPokemon.base.Attack}</p>
-                <p>Defense: {opponentPokemon.base.Defense}</p>
-                <p>Sp Attack: {opponentPokemon.base["Sp. Attack"]}</p>
-                <p>Sp Defense: {opponentPokemon.base["Sp. Defense"]}</p>
-                <p>Speed: {opponentPokemon.base.Speed}</p>
+                <div className="stats">
+                  {Object.entries(opponentPokemon.base).map(([key, value]) => (
+                    <div key={key}>
+                      <strong>{key}:</strong>
+                      <div className="stat-bar-container">
+                        <div
+                          className="stat-bar"
+                          style={{
+                            width: `${value}%`,
+                            backgroundColor: getStatColor(value),
+                          }}
+                        ></div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
-        
         </>
       )}
     </div>
