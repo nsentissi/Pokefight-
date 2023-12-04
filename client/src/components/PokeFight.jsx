@@ -2,6 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import "./PokeFight.css";
 
 const PokeFight = () => {
   const { id } = useParams();
@@ -9,6 +10,8 @@ const PokeFight = () => {
   const [opponentPokemon, setOpponentPokemon] = useState({});
   const [battleResult, setBattleResult] = useState("");
   const [loading, setLoading] = useState(true);
+  const [battleLoading, setBattleLoading] = useState(false);
+  const opponents = [];
 
   const fetchData = async () => {
     try {
@@ -54,18 +57,46 @@ const PokeFight = () => {
     return totalStats / Object.keys(pokemon.base).length;
   };
 
-  const handleBattleStart = () => {
-    const yourAverageStats = calculateAverageStats(selectedPokemon);
-    const opponentAverageStats = calculateAverageStats(opponentPokemon);
+  const handleBattleStart = async () => {
+    setBattleLoading(true);
 
-    if (yourAverageStats > opponentAverageStats) {
-      setBattleResult("You won!");
-    } else if (yourAverageStats < opponentAverageStats) {
-      setBattleResult("You lost!");
-    } else {
-      setBattleResult("It's a draw!");
-    }
+    const ran = Math.floor(Math.random() * 5) * 1000;
+    console.log(ran);
+    new Promise((resolve) => {
+      setTimeout(() => {
+        const yourAverageStats = calculateAverageStats(selectedPokemon);
+        const opponentAverageStats = calculateAverageStats(opponentPokemon);
+
+        if (yourAverageStats > opponentAverageStats) {
+          resolve("You won!");
+          opponents.push({ ...opponentPokemon, result: "won" });
+          // setBattleResult('You won!')
+        } else if (yourAverageStats < opponentAverageStats) {
+          opponents.push({ ...opponentPokemon, result: "lost" });
+          resolve("You lost!");
+          // setBattleResult('You lost!')
+        } else {
+          opponents.push({ ...opponentPokemon, result: "draw" });
+          resolve("It's a draw");
+        }
+      }, ran);
+    })
+      .then((result) => {
+        setBattleResult(result);
+        console.log("done", result);
+      })
+      .finally((result) => {
+        setBattleLoading(false);
+
+        console.log("finaly", result);
+      });
   };
+
+  const handleRematch = () => {
+    fetchData()
+    setBattleResult('')
+  }    
+
 
   return (
     <div>
@@ -81,7 +112,7 @@ const PokeFight = () => {
             >
               <h2>{selectedPokemon.name.english}</h2>
               <img
-                className="pokemon-image"
+                className={`pokemon-image ${battleLoading ? "spring-box " : ""}`}
                 src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${selectedPokemon.id}.png`}
                 alt={`Image of ${selectedPokemon.name.english}`}
               />
@@ -111,6 +142,9 @@ const PokeFight = () => {
               </button>
               {battleResult && <p>{battleResult}</p>}
             </div>
+            <div>
+                <button onClick={handleRematch}>Rematch!</button>
+            </div>
             <div
               className={`randomPokemon tipo-${
                 opponentPokemon?.type && opponentPokemon.type[0].toLowerCase()
@@ -118,7 +152,9 @@ const PokeFight = () => {
             >
               <h2>{opponentPokemon.name.english}</h2>
               <img
-                className="pokemon-image"
+                className={`pokemon-image ${
+                  battleLoading ? "spring-box " : ""
+                }`}
                 src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${opponentPokemon.id}.png`}
                 alt={`Image of ${opponentPokemon.name.english}`}
               />

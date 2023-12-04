@@ -1,0 +1,12 @@
+.pokelist {
+    display: flex;
+    
+}
+
+.listPoke {
+    margin-top: 5rem;
+}
+
+.inputArea {
+    margin-top: 10rem;
+}

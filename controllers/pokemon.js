@@ -4,7 +4,19 @@ const PokemonList = require("../data.json");
 const getAll =
   ("/pokemon",
   (req, res) => {
-    res.json(PokemonList);
+    const page = parseInt(req.query.page) || 1; // Get the page parameter from the query string, default to 1
+  const pageSize = parseInt(req.query.pageSize) || 10; // Get the pageSize parameter from the query string, default to 10
+
+  const startIndex = (page - 1) * pageSize;
+  const endIndex = startIndex + pageSize;
+
+  const paginatedPokemon = PokemonList.slice(startIndex, endIndex);
+
+  res.json({
+    data: paginatedPokemon,
+    currentPage: page,
+    totalPages: Math.ceil(PokemonList.length / pageSize),
+  });
   });
 
 const getOnePokemon =
