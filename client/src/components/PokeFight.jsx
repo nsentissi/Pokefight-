@@ -10,7 +10,7 @@ const PokeFight = () => {
   const [battleResult, setBattleResult] = useState("");
   const [loading, setLoading] = useState(true);
 
-  const fetchData = async () => {
+const fetchData = async () => {
     try {
       const response1 = await axios.get(`http://localhost:3001/pokemon/${id}`);
       setSelectedPokemon(response1.data);
@@ -25,9 +25,23 @@ const PokeFight = () => {
     }
   };
 
+  const getStatColor = (value) => {
+    if (value >= 60) {
+      return "red";
+    } else if (value >= 80) {
+      return "yellow";
+    } else {
+      return "dodgerblue";
+    }
+  };
+
+  
   useEffect(() => {
     fetchData();
   }, [id]);
+
+  
+
 
   const calculateAverageStats = (pokemon) => {
     const totalStats =
@@ -38,7 +52,8 @@ const PokeFight = () => {
       pokemon.base["Sp. Defense"] +
       pokemon.base.Speed;
 
-    return totalStats / 6;
+    /* return totalStats / 6; */
+    return totalStats / Object.keys(pokemon.base).length;
   };
 
   const handleBattleStart = () => {
@@ -55,7 +70,7 @@ const PokeFight = () => {
   };
 
   return (
-    <div>
+ <div>
       {loading ? (
         <p>Loading...</p>
       ) : (
@@ -78,6 +93,13 @@ const PokeFight = () => {
                 <p>Speed: {selectedPokemon.base.Speed}</p>
               </div>
             </div>
+            <div className="btn-results">
+            <button className="btn-battle" onClick={handleBattleStart}>Start Battle</button>
+            {battleResult && <p>{battleResult}</p>}
+          </div>
+          <div>
+            <button>Rematch</button>
+          </div>
             <div className="randomPokemon">
               <h2>{opponentPokemon.name.english}</h2>
               <img
@@ -95,13 +117,7 @@ const PokeFight = () => {
               </div>
             </div>
           </div>
-          <div>
-            <button onClick={handleBattleStart}>Start Battle</button>
-            {battleResult && <p>{battleResult}</p>}
-          </div>
-          <div>
-            <button>Rematch</button>
-          </div>
+        
         </>
       )}
     </div>

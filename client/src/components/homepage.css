@@ -9,7 +9,6 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color: #8d7b29;
 }
 
 .cards {
@@ -70,6 +69,6 @@ h1 {
 }
 
 .card-link {
-  text-decoration: none; 
-  color: inherit; 
+  text-decoration: none;
+  color: inherit;
 }

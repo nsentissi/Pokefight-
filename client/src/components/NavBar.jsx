@@ -1,15 +1,14 @@
-import "./Homepage";
 import "./navbar.css";
-
+import "./Homepage";
+import { Link } from "react-router-dom";
 
 export default function NavBar() {
-    return (
+  return (
     <nav className="navbar">
-        <a href="#Pokemons" >Pokemons</a>
-        <a href="#pokeFight">pokeFight</a>
-        <a href="#pokedex">pokedex</a>
-        <a href="#contact">Contact</a>
-        <span></span>
+      <Link to="/">Homepage</Link>
+      <Link to="/pokemon">Pokemonlist</Link>
+      <Link to="/contact">Contact</Link>
+      <span></span>
     </nav>
-);
+  );
 }
