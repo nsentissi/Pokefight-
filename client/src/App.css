@@ -188,76 +188,134 @@ body {
   border-radius: 50px;
 }
 
-/* COLORS------------------------------------------------------------------- */
 
 .tipo-electric {
-  box-shadow: 0 8px 16px rgba(248, 208, 48, 0.8); /* Amarelo para tipo elétrico */
+  box-shadow: 0 8px 16px rgba(248, 208, 48, 0.8); 
 }
 
 .tipo-water {
-  box-shadow: 0 8px 16px rgba(104, 144, 240, 0.8); /* Azul para tipo água */
+  box-shadow: 0 8px 16px rgba(104, 144, 240, 0.8); 
 }
 
 .tipo-fire {
-  box-shadow: 0 8px 16px rgba(240, 128, 48, 0.8); /* Laranja para tipo fogo */
+  box-shadow: 0 8px 16px rgba(240, 128, 48, 0.8); 
 }
 
 .tipo-grass {
-  box-shadow: 0 8px 16px rgba(120, 200, 80, 0.8); /* Verde para tipo grama */
+  box-shadow: 0 8px 16px rgba(120, 200, 80, 0.8); 
 }
 
 .tipo-ice {
-  box-shadow: 0 8px 16px rgba(152, 216, 216, 0.8); /* Azul claro para tipo gelo */
+  box-shadow: 0 8px 16px rgba(152, 216, 216, 0.8); 
 }
 
 .tipo-fighting {
-  box-shadow: 0 8px 16px rgba(192, 48, 40, 0.8); /* Vermelho para tipo lutador */
+  box-shadow: 0 8px 16px rgba(192, 48, 40, 0.8); 
 }
 
 .tipo-poison {
-  box-shadow: 0 8px 16px rgba(160, 64, 160, 0.8); /* Roxo para tipo veneno */
+  box-shadow: 0 8px 16px rgba(160, 64, 160, 0.8); 
 }
 
 .tipo-ground {
-  box-shadow: 0 8px 16px rgba(224, 192, 104, 0.8); /* Marrom para tipo solo */
+  box-shadow: 0 8px 16px rgba(224, 192, 104, 0.8); 
 }
 
 .tipo-flying {
-  box-shadow: 0 8px 16px rgba(168, 144, 240, 0.8); /* Azul claro para tipo voador */
+  box-shadow: 0 8px 16px rgba(168, 144, 240, 0.8); 
 }
 
 .tipo-psychic {
-  box-shadow: 0 8px 16px rgba(248, 88, 136, 0.8); /* Rosa para tipo psíquico */
+  box-shadow: 0 8px 16px rgba(248, 88, 136, 0.8);
 }
 
 .tipo-bug {
-  box-shadow: 0 8px 16px rgba(168, 184, 32, 0.8); /* Verde para tipo inseto */
+  box-shadow: 0 8px 16px rgba(168, 184, 32, 0.8); 
 }
 
 .tipo-rock {
-  box-shadow: 0 8px 16px rgba(184, 160, 56, 0.8); /* Amarelo para tipo pedra */
+  box-shadow: 0 8px 16px rgba(184, 160, 56, 0.8); 
 }
 
 .tipo-ghost {
-  box-shadow: 0 8px 16px rgba(112, 88, 152, 0.8); /* Roxo escuro para tipo fantasma */
+  box-shadow: 0 8px 16px rgba(112, 88, 152, 0.8);
 }
 
 .tipo-dark {
-  box-shadow: 0 8px 16px rgba(112, 88, 72, 0.8); /* Marrom escuro para tipo sombrio */
+  box-shadow: 0 8px 16px rgba(112, 88, 72, 0.8); 
 }
 
 .tipo-steel {
-  box-shadow: 0 8px 16px rgba(184, 184, 208, 0.8); /* Cinza para tipo metálico */
+  box-shadow: 0 8px 16px rgba(184, 184, 208, 0.8); 
 }
 
 .tipo-fairy {
-  box-shadow: 0 8px 16px rgba(238, 153, 172, 0.8); /* Rosa claro para tipo fada */
+  box-shadow: 0 8px 16px rgba(238, 153, 172, 0.8); 
 }
 
-/* POKEFIGHT!-------------------------------------------------------------------------- */
 
 .pokeArena {
   display: flex;
+
+  gap: 5rem
+}
+
+
+
+.wrapper
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+   transform: translate(-50%, -50%);
+
+}
+
+.pokeball {
+  width: 60px;
+  height: 60px;
+  background-color: #fff;
+  border-radius: 50% ;
+  position: relative;
+  overflow: hidden;
+  border: 3px solid;
+  animation: frames .8s  linear 0s infinite;
+}
+
+.pokeball:after{
+  content: '';
+  position: absolute;
+  width: 60px;
+  height: 30px;
+  background-color: red;
+  border-bottom: 4px solid;
+  top: -4px
+}
+
+.pokeball:before{
+  content: '';
+  position: absolute;
+  background-color: #fff;
+  width: 10px;
+  height:10px;
+  border: 4px solid;
+  border-radius: 50%;
+  bottom: 18px;
+  right: 18px;
+  z-index: 1;
+}
+
+
+@keyframes frames{
+  0% {
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}
+
   justify-content: center;
   align-items: center;
   height: auto;
@@ -298,4 +356,4 @@ body {
   gap: 1rem;
 }
 
-/* Background */
+

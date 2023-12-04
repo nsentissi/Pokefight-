@@ -20,6 +20,7 @@ import Ground from "../assets/Ground.png";
 import Rock from "../assets/Rock.png";
 import Ghost from "../assets/Ghost.png";
 import Ice from "../assets/Ice.png";
+import PokeLoader from "./PokeLoader";
 
 const Pokemonlist = () => {
   const [pokemons, setPokemons] = useState(null);
@@ -89,7 +90,7 @@ const Pokemonlist = () => {
         <option value="Water">Water</option>
       </select>
       {!pokemons ? (
-        <p>Loading ... </p>
+        <PokeLoader/>
       ) : (
         <div className="PokeCard">
           {pokemons
