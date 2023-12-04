@@ -10,19 +10,23 @@ const PokeFight = () => {
   const [battleResult, setBattleResult] = useState("");
   const [loading, setLoading] = useState(true);
 
+  const fetchData = async () => {
+    try {
+      const response1 = await axios.get(`http://localhost:3001/pokemon/${id}`);
+      setSelectedPokemon(response1.data);
+
+      const randomOpponentId = Math.floor(Math.random() * 809) + 1;
+      const response2 = await axios.get(`http://localhost:3001/pokemon/${randomOpponentId}`);
+      setOpponentPokemon(response2.data);
+
+      setLoading(false);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+
   useEffect(() => {
-    axios.get(`http://localhost:3001/pokemon/${id}`).then((response) => {
-      setSelectedPokemon(response.data);
-    });
-
-    const randomOpponentId = Math.floor(Math.random() * 809) + 1;
-
-    axios
-      .get(`http://localhost:3001/pokemon/${randomOpponentId}`)
-      .then((response) => {
-        setOpponentPokemon(response.data);
-        setLoading(false);
-      });
+    fetchData();
   }, [id]);
 
   const calculateAverageStats = (pokemon) => {
@@ -58,6 +62,7 @@ const PokeFight = () => {
         <>
           <div className="pokeArena">
             <div className="myPokemon">
+                
               <h2>{selectedPokemon.name.english}</h2>
               <img
                 className="pokemon-image"
@@ -93,6 +98,9 @@ const PokeFight = () => {
           <div>
             <button onClick={handleBattleStart}>Start Battle</button>
             {battleResult && <p>{battleResult}</p>}
+          </div>
+          <div>
+            <button>Rematch</button>
           </div>
         </>
       )}
