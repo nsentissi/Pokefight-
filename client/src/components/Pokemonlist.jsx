@@ -29,6 +29,7 @@ const Pokemonlist = () => {
   const [totalPages, setTotalPages] = useState(1);
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedType, setSelectedType] = useState("");
+  const [useCompleteResults, setUseCompleteResults] = useState(false);
 
   const typeImages = {
     Colorless,
