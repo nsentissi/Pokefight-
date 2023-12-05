@@ -14,7 +14,7 @@ import Metal from "../assets/Metal.png";
 import Psychic from "../assets/Psychic.png";
 import Water from "../assets/Water.png";
 import Bug from "../assets/Bug.png";
-import Normal from "../assets/Bug.png";
+import Normal from "../assets/Normal.png";
 import Poison from "../assets/Poison.png";
 import Ground from "../assets/Ground.png";
 import Rock from "../assets/Rock.png";
