@@ -4,13 +4,18 @@ const {
   getAll,
   getOnePokemon,
   getPokeinfo,
+  getAllPokemon
 } = require("../controllers/pokemon.js");
 
 
 
-const pokemonRouter = express.Router();
-pokemonRouter.route("/").get(getAll)
-pokemonRouter.route("/:id").get(getOnePokemon)
-pokemonRouter.route("/:id/:info").get(getPokeinfo)
+const router = express.Router();
+router.route('/').get(getAll);
 
-module.exports = pokemonRouter;
+router.route('/all').get(getAllPokemon);
+
+router.route('/:id').get(getOnePokemon);
+
+router.route('/:id/:info').get(getPokeinfo);
+
+module.exports = router;
