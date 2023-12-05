@@ -11,7 +11,7 @@ const PokeFight = () => {
   const [battleResult, setBattleResult] = useState("");
   const [loading, setLoading] = useState(true);
   const [battleLoading, setBattleLoading] = useState(false);
-  const opponents = [];
+  const [leaderboard, setLeaderboard] = useState([]);
 
   const fetchData = async () => {
     try {
@@ -66,28 +66,87 @@ const PokeFight = () => {
         const yourAverageStats = calculateAverageStats(selectedPokemon);
         const opponentAverageStats = calculateAverageStats(opponentPokemon);
 
-        if (yourAverageStats > opponentAverageStats) {
-          resolve("You won!");
-          opponents.push({ ...opponentPokemon, result: "won" });
-          // setBattleResult('You won!')
-        } else if (yourAverageStats < opponentAverageStats) {
-          opponents.push({ ...opponentPokemon, result: "lost" });
-          resolve("You lost!");
-          // setBattleResult('You lost!')
-        } else {
-          opponents.push({ ...opponentPokemon, result: "draw" });
-          resolve("It's a draw");
-        }
+        setLeaderboard((prevLeaderboard) => {
+          const updatedLeaderboard = [...prevLeaderboard];
+          const pokemonIndex = updatedLeaderboard.findIndex(
+            (element) => element.name === selectedPokemon.name.english
+          );
+
+          if (yourAverageStats > opponentAverageStats) {
+            if (pokemonIndex !== -1) {
+              updatedLeaderboard[pokemonIndex].wins += 1;
+            } else {
+              updatedLeaderboard.push({
+                name: selectedPokemon.name.english,
+                wins: 1,
+                losses: 0,
+              });
+            }
+            axios
+              .post("http://localhost:3001/pokemon/leaderboard", {
+                name: selectedPokemon.name.english,
+                wins: 1,
+                losses: 0,
+              })
+              .then((response) => {
+                console.log(
+                  "Leaderboard updated on the server:",
+                  response.data
+                );
+              })
+              .catch((error) => {
+                console.error(
+                  "Error updating leaderboard on the server:",
+                  error
+                );
+              });
+            resolve("You won!");
+          } else if (yourAverageStats < opponentAverageStats) {
+            if (pokemonIndex !== -1) {
+              updatedLeaderboard[pokemonIndex].losses += 1;
+            } else {
+              updatedLeaderboard.push({
+                name: selectedPokemon.name.english,
+                wins: 0,
+                losses: 1,
+              });
+            }
+            axios
+              .post(
+                "http://localhost:3001/pokemon/leaderboard",
+                { name: selectedPokemon.name.english,
+                  wins: 0,
+                  losses: 1,}
+              )
+              .then((response) => {
+                console.log(
+                  "Leaderboard updated on the server:",
+                  response.data
+                );
+              })
+              .catch((error) => {
+                console.error(
+                  "Error updating leaderboard on the server:",
+                  error
+                );
+              });
+            resolve("You lost!");
+          } else {
+            resolve("It's a draw");
+          }
+
+          return updatedLeaderboard;
+        });
       }, ran);
     })
       .then((result) => {
         setBattleResult(result);
         console.log("done", result);
       })
-      .finally((result) => {
+      .finally(() => {
         setBattleLoading(false);
-
-        console.log("finaly", result);
+        console.log(leaderboard);
+        console.log("finally");
       });
   };
 
