@@ -1,59 +1,74 @@
 const express = require("express");
 const PokemonList = require("../data.json");
 
-const getAll =
-  ("/pokemon",
-  (req, res) => {
-    const page = parseInt(req.query.page) || 1; // Get the page parameter from the query string, default to 1
-  const pageSize = parseInt(req.query.pageSize) || 10; // Get the pageSize parameter from the query string, default to 10
 
-  const startIndex = (page - 1) * pageSize;
-  const endIndex = startIndex + pageSize;
+const getAll = (req, res) => {
+  try {
+    const page = parseInt(req.query.page) || 1;
+    const pageSize = parseInt(req.query.pageSize) || 12;
 
-  const paginatedPokemon = PokemonList.slice(startIndex, endIndex);
+    const startIndex = (page - 1) * pageSize;
+    const endIndex = startIndex + pageSize;
 
-  res.json({
-    data: paginatedPokemon,
-    currentPage: page,
-    totalPages: Math.ceil(PokemonList.length / pageSize),
-  });
-  });
+    const paginatedPokemon = PokemonList.slice(startIndex, endIndex);
 
-const getOnePokemon =
-  ("/pokemon/:id",
-  (req, res) => {
-    const { id } = req.params;
-
-    const singlePokemon = PokemonList.find((pokemon) => {
-      if (pokemon.id === +id) {
-        return pokemon;
-      }
+    res.json({
+      data: paginatedPokemon,
+      currentPage: page,
+      totalPages: Math.ceil(PokemonList.length / pageSize),
     });
-    if (singlePokemon) {
-      res.json(singlePokemon);
-    } else {
-      res.status(404).json({ message: "Pokemon not found" });
+  } catch (error) {
+    console.error('Error fetching paginated Pokémon:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+};
+
+const getAllPokemon = (req, res) => {
+  try {
+    const allPokemon = PokemonList;
+
+    res.json({
+      data: allPokemon,
+      totalPages: 1, // Assuming all Pokémon are on a single page
+    });
+  } catch (error) {
+    console.error('Error fetching all Pokémon:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+};
+
+const getOnePokemon = (req, res) => {
+  const { id } = req.params;
+
+  const singlePokemon = PokemonList.find((pokemon) => {
+    if (pokemon.id === +id) {
+      return pokemon;
     }
   });
 
-const getPokeinfo =
-  ("/pokemon/:id/:info",
-  (req, res) => {
-    const { id, info } = req.params;
-    const basePokemon = PokemonList.find((element) => {
-      return element.id === +id;
-    });
+  if (singlePokemon) {
+    res.json(singlePokemon);
+  } else {
+    res.status(404).json({ message: 'Pokemon not found' });
+  }
+};
 
-    if (basePokemon) {
-      const selectedInfo = basePokemon[info];
-      if (selectedInfo) {
-        res.json(selectedInfo);
-      } else {
-        res.status(404).json({ message: "Info not found" });
-      }
-    } else {
-      res.status(404).json({ message: "Pokemon not found" });
-    }
+const getPokeinfo = (req, res) => {
+  const { id, info } = req.params;
+  const basePokemon = PokemonList.find((element) => {
+    return element.id === +id;
   });
 
-module.exports = { getAll, getOnePokemon, getPokeinfo };
+  if (basePokemon) {
+    const selectedInfo = basePokemon[info];
+    if (selectedInfo) {
+      res.json(selectedInfo);
+    } else {
+      res.status(404).json({ message: 'Info not found' });
+    }
+  } else {
+    res.status(404).json({ message: 'Pokemon not found' });
+  }
+};
+
+module.exports = { getAll, getAllPokemon, getOnePokemon, getPokeinfo };
