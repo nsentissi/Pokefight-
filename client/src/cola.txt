@@ -3,3 +3,12 @@
         src={typeImages[pokemon.type[0]]}
         alt="Pokemon Icon"
       /> */}
+
+
+      tipo-${
+                selectedPokemon?.type && selectedPokemon.type[0].toLowerCase()
+              }
+
+              tipo-${
+                opponentPokemon?.type && opponentPokemon.type[0].toLowerCase()
+              }

@@ -3,8 +3,6 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
-import PokemonImage from "./PokemonImage";
-
 import { Link } from "react-router-dom";
 
 import Colorless from "../assets/Colorless.png";
@@ -81,7 +79,13 @@ const PokemonDetails = () => {
             pokemon.type && pokemon.type[0].toLowerCase()
           }`}
         >
+          {/* <img
+            className="pokemon-badge"
+            src={typeImages[pokemon.type[0]]}
+            alt="Pokemon Icon"
+          /> */}
           <img
+            className="pokemon-img"
             src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${id}.png`}
             alt={pokemon.name?.english}
           />
@@ -94,14 +98,9 @@ const PokemonDetails = () => {
           >
             <div className="name-id-type">
               {pokemon.name && <h1>{pokemon.name.english}</h1>}
-              {pokemon.id && (
-                <div>
-                  <strong>ID:</strong> {pokemon.id}
-                </div>
-              )}
               {pokemon.type && (
                 <div>
-                  <strong>Type:</strong> {pokemon.type.join(", ")}
+                  {/* <strong>Type:</strong> {pokemon.type.join(", ")} */}
                 </div>
               )}
             </div>
@@ -132,7 +131,7 @@ const PokemonDetails = () => {
       </div>
       <Link to={`/pokemon/battle/${pokemon.id}`}>
         <button
-          className={`btn-battle tipo-${
+          className={`btn-fight tipo-${
             pokemon.type && pokemon.type[0].toLowerCase()
           }`}
         >
