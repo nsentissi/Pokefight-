@@ -50,7 +50,6 @@ const PokeFight = () => {
       pokemon.base["Sp. Defense"] +
       pokemon.base.Speed;
 
-    /* return totalStats / 6; */
     return totalStats / Object.keys(pokemon.base).length;
   };
 
@@ -74,12 +73,14 @@ const PokeFight = () => {
       ) : (
         <>
           <div className="pokeArena">
-            <div
-              className={`myPokemon tipo-${
-                selectedPokemon?.type && selectedPokemon.type[0].toLowerCase()
-              }`}
-            >
-              <h2>{selectedPokemon.name.english}</h2>
+            <div className={`myPokemon`}>
+              <h2
+                className={`text-${
+                  selectedPokemon?.type && selectedPokemon.type[0].toLowerCase()
+                }`}
+              >
+                {selectedPokemon.name.english}
+              </h2>
               <img
                 className="pokemon-image"
                 src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${selectedPokemon.id}.png`}
@@ -111,12 +112,14 @@ const PokeFight = () => {
               </button>
               {battleResult && <p>{battleResult}</p>}
             </div>
-            <div
-              className={`randomPokemon tipo-${
-                opponentPokemon?.type && opponentPokemon.type[0].toLowerCase()
-              }`}
-            >
-              <h2>{opponentPokemon.name.english}</h2>
+            <div className={`randomPokemon`}>
+              <h2
+                className={`text-style text-${
+                  opponentPokemon?.type && opponentPokemon.type[0].toLowerCase()
+                }`}
+              >
+                {opponentPokemon.name.english}
+              </h2>
               <img
                 className="pokemon-image"
                 src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${opponentPokemon.id}.png`}
