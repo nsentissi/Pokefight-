@@ -5,7 +5,7 @@ const PokemonList = require("../data.json");
 const getAll = (req, res) => {
   try {
     const page = parseInt(req.query.page) || 1;
-    const pageSize = parseInt(req.query.pageSize) || 10;
+    const pageSize = parseInt(req.query.pageSize) || 12;
 
     const startIndex = (page - 1) * pageSize;
     const endIndex = startIndex + pageSize;
