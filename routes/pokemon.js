@@ -16,10 +16,12 @@ router.route('/').get(getAll); /* paginated  */
 
 router.route('/all').get(getAllPokemon);
 
+router.route('/leaderboard').get(getStats).post(createStat)
+
 router.route('/:id').get(getOnePokemon);
 
  router.route('/:id/:info').get(getPokeinfo);
 
-router.route('/leaderboard').get(getStats).post(createStat)
+
 
 module.exports = router;

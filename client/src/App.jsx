@@ -7,6 +7,7 @@ import Homepage from "./components/Homepage";
 import Pokemonlist from "./components/Pokemonlist";
 import PokemonDetails from "./components/PokemonDetails";
 import PokeFight from "./components/PokeFight"
+import LeaderBoard from "./components/LeaderBoard";
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
           <Route path="/pokemon" element={<Pokemonlist />} />
           <Route path="/pokemon/:id" element={<PokemonDetails />} />
           <Route path="/pokemon/battle/:id" element={<PokeFight />} />
+          <Route path="/pokemon/leaderboard" element={<LeaderBoard />} />
         </Routes>
       </div>
     </>
