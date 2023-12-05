@@ -92,10 +92,9 @@ const PokeFight = () => {
   };
 
   const handleRematch = () => {
-    fetchData()
-    setBattleResult('')
-  }    
-
+    fetchData();
+    setBattleResult("");
+  };
 
   return (
     <div>
@@ -113,7 +112,7 @@ const PokeFight = () => {
                 {selectedPokemon.name.english}
               </h2>
               <img
-                className={`pokemon-image ${battleLoading ? "spring-box " : ""}`}
+                className={`pokemon-image ${battleLoading ? "spring-box" : ""}`}
                 src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${selectedPokemon.id}.png`}
                 alt={`Image of ${selectedPokemon.name.english}`}
               />
@@ -143,8 +142,8 @@ const PokeFight = () => {
               </button>
               {battleResult && <p>{battleResult}</p>}
             </div>
-              <div>
-                <button onClick={handleRematch}>Rematch!</button>
+            <div>
+              <button onClick={handleRematch}>Rematch!</button>
             </div>
 
             <div className={`randomPokemon`}>
@@ -156,37 +155,39 @@ const PokeFight = () => {
                 {opponentPokemon.name.english}
               </h2>
 
-          
-            <div
-              className={`randomPokemon tipo-${
-                opponentPokemon?.type && opponentPokemon.type[0].toLowerCase()
-              }`}
-            >
-              <h2>{opponentPokemon.name.english}</h2>
-   <img
-                className={`pokemon-image ${
-                  battleLoading ? "spring-box " : ""
+              <div
+                className={`randomPokemon tipo-${
+                  opponentPokemon?.type && opponentPokemon.type[0].toLowerCase()
                 }`}
-                src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${opponentPokemon.id}.png`}
-                alt={`Image of ${opponentPokemon.name.english}`}
-              />
-              {/* updated the code logic for the stats with the bar colors */}
-              <div>
-                <div className="stats">
-                  {Object.entries(opponentPokemon.base).map(([key, value]) => (
-                    <div key={key}>
-                      <strong>{key}:</strong>
-                      <div className="stat-bar-container">
-                        <div
-                          className="stat-bar"
-                          style={{
-                            width: `${value}%`,
-                            backgroundColor: getStatColor(value),
-                          }}
-                        ></div>
-                      </div>
-                    </div>
-                  ))}
+              >
+                <h2>{opponentPokemon.name.english}</h2>
+                <img
+                  className={`pokemon-image ${
+                    battleLoading ? "spring-box" : ""
+                  }`}
+                  src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${opponentPokemon.id}.png`}
+                  alt={`Image of ${opponentPokemon.name.english}`}
+                />
+                {/* updated the code logic for the stats with the bar colors */}
+                <div>
+                  <div className="stats">
+                    {Object.entries(opponentPokemon.base).map(
+                      ([key, value]) => (
+                        <div key={key}>
+                          <strong>{key}:</strong>
+                          <div className="stat-bar-container">
+                            <div
+                              className="stat-bar"
+                              style={{
+                                width: `${value}%`,
+                                backgroundColor: getStatColor(value),
+                              }}
+                            ></div>
+                          </div>
+                        </div>
+                      )
+                    )}
+                  </div>
                 </div>
               </div>
             </div>
