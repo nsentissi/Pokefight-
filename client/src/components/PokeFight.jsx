@@ -155,7 +155,7 @@ const PokeFight = () => {
     setBattleResult("");
   };
 
-  return (
+   return (
     <div>
       {loading ? (
         <p>Loading...</p>
@@ -170,11 +170,13 @@ const PokeFight = () => {
               >
                 {selectedPokemon.name.english}
               </h2>
+              <div>
               <img
                 className={`pokemon-image ${battleLoading ? "spring-box" : ""}`}
                 src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${selectedPokemon.id}.png`}
                 alt={`Image of ${selectedPokemon.name.english}`}
               />
+              </div>
               {/* updated the code logic for the stats with the bar colors */}
               <div>
                 <div className="stats">
