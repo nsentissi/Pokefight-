@@ -1,32 +1,23 @@
-import ReactPlayer from "react-player";
-import "./video.css";
+import './video.css';
+import shiningBrightVideo from '../assets/ShiningBright.mp4';
 
 const VideoBackground = () => {
-  return (
+return (
     <div className="video-background">
-      <ReactPlayer
-        url="https://www.youtube.com/watch?v=7vZOX5gV-K4"
-        playing
+    <video
+        autoPlay
         loop
         muted
-        width="100%"
-        height="100%"
-        controls={false}
-        config={{
-          youtube: {
-            playerVars: {
-              modestbranding: 1,
-              autohide: 1,
-              showinfo: 0,
-              controls: 0,
-              fs: 0,
-              rel: 0,
-            },
-          },
+        style={{
+            width: '100%',
+            height: '100vh',
+            objectFit: 'cover',
         }}
-      />
+    >
+        <source src={shiningBrightVideo} type="video/mp4" />
+    </video>
     </div>
-  );
+);
 };
 
 export default VideoBackground;

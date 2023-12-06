@@ -1,6 +1,6 @@
 const express = require("express");
 const PokemonList = require("../data.json");
-
+const leaderboard = require("../models/leaderboard");
 
 const getAll = (req, res) => {
   try {
@@ -18,8 +18,8 @@ const getAll = (req, res) => {
       totalPages: Math.ceil(PokemonList.length / pageSize),
     });
   } catch (error) {
-    console.error('Error fetching paginated Pokémon:', error);
-    res.status(500).json({ error: 'Internal Server Error' });
+    console.error("Error fetching paginated Pokémon:", error);
+    res.status(500).json({ error: "Internal Server Error" });
   }
 };
 
@@ -29,11 +29,11 @@ const getAllPokemon = (req, res) => {
 
     res.json({
       data: allPokemon,
-      totalPages: 1, // Assuming all Pokémon are on a single page
+      totalPages: 1,
     });
   } catch (error) {
-    console.error('Error fetching all Pokémon:', error);
-    res.status(500).json({ error: 'Internal Server Error' });
+    console.error("Error fetching all Pokémon:", error);
+    res.status(500).json({ error: "Internal Server Error" });
   }
 };
 
@@ -49,7 +49,7 @@ const getOnePokemon = (req, res) => {
   if (singlePokemon) {
     res.json(singlePokemon);
   } else {
-    res.status(404).json({ message: 'Pokemon not found' });
+    res.status(404).json({ message: "Pokemon not found" });
   }
 };
 
@@ -64,11 +64,44 @@ const getPokeinfo = (req, res) => {
     if (selectedInfo) {
       res.json(selectedInfo);
     } else {
-      res.status(404).json({ message: 'Info not found' });
+      res.status(404).json({ message: "Info not found" });
     }
   } else {
-    res.status(404).json({ message: 'Pokemon not found' });
+    res.status(404).json({ message: "Pokemon not found" });
   }
 };
 
-module.exports = { getAll, getAllPokemon, getOnePokemon, getPokeinfo };
+const createStat = async (req, res) => {
+  try {
+    const { name, wins, losses } = req.body;
+    const findPokemon = await leaderboard.findOne({ name });
+    if (findPokemon) {
+      await leaderboard.updateOne({ name }, { $inc: { wins, losses } });
+    } else {
+      const user = await leaderboard.create({ name, wins, losses });
+    }
+    return res.status(201).json({});
+  } catch (error) {
+    console.log(error);
+    return res.status(500).send("Ops... Something Went Wrong");
+  }
+};
+
+const getStats = async (req, res) => {
+  try {
+    const stats = await leaderboard.find({});
+    res.json(stats);
+  } catch (error) {
+    console.log(error);
+    res.status(500).send("Ops... Something Went Wrong");
+  }
+};
+
+module.exports = {
+  getAll,
+  getAllPokemon,
+  getOnePokemon,
+  getPokeinfo,
+  createStat,
+  getStats,
+};
