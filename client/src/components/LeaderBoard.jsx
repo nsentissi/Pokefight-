@@ -44,10 +44,12 @@ const LeaderBoard = () => {
           <tbody>
             {leaderboardData?.map((entry) => (
               <tr key={entry._id}>
-                <td>{entry.name}
-<img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${entry.id}.gif`}  />
+                <td className="gif-name">
+                  <img
+                    src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${entry.id}.gif`}
+                  />
                   {entry.name}
-</td>
+                </td>
                 <td>{entry.wins}</td>
                 <td>{entry.losses}</td>
               </tr>
