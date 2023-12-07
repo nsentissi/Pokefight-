@@ -1,5 +1,8 @@
 body {
+
+
   font-family: 'Comic Neue', cursive;
+
   background-color: #f0f0f0;
   background-image: url("https://preview.redd.it/pokemon-anniversary-wallpaper-5120x1440-v0-2zl712jin0ga1.png?width=3440&format=png&auto=webp&s=6f4d5b2ecbba15b48b6c3bc3bfc0d778b122f175");
   background-repeat: no-repeat;
@@ -255,12 +258,22 @@ body {
 .btn-rematch:hover,
 .btn-rematch:focus {
   background: var(--btn-hover-bg);
+
 }
 
 .btn-rematch:hover span,
 .btn-rematch:focus span {
   color: var(--hover-btn-color);
 }
+
+
+}
+
+.btn-rematch:hover span,
+.btn-rematch:focus span {
+  color: var(--hover-btn-color);
+}
+
 
 .btn-rematch:hover span::before,
 .btn-rematch:focus span::before {

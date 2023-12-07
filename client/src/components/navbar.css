@@ -16,7 +16,7 @@
 .navbar {
   position: fixed;
   top: 0;
-  left: 35%;
+  left: 40%;
   width: 30%;
   height: 5%;
   background:#222;
@@ -50,11 +50,11 @@
 }
 
 .navbar a:nth-child(1):hover~span {
-  left: 28%;
+  left: 23%;
 }
 .navbar a:nth-child(2):hover~span {
-  left: 45%;
+  left: 43%;
 }
 .navbar a:nth-child(3):hover~span {
-  left: 60%;
+  left: 62%;
 }
