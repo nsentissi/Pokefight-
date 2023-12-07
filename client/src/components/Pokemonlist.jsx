@@ -121,7 +121,6 @@ const Pokemonlist = () => {
             <PokeLoader />
           ) : (
             <div className="PokeCard">
-
   {pokemons
     .filter((pokemon) =>
       pokemon.name.english
@@ -142,36 +141,6 @@ const Pokemonlist = () => {
             <div className="marquee__inner">
               <strong>{pokemon.name.english}</strong>
               <span className="viper">{pokemon.name.english} {pokemon.name.english} {pokemon.name.english} {pokemon.name.english} {pokemon.name.english}</span>
-
-              {pokemons
-                .filter((pokemon) =>
-                  pokemon.name.english
-                    .toLowerCase()
-                    .includes(searchTerm.toLowerCase())
-                )
-                .filter((pokemon) =>
-                  selectedType ? pokemon.type[0].includes(selectedType) : true
-                )
-                .map((pokemon) => (
-                  <div key={pokemon.id} className="pokemon-card">
-                    <img
-                      className="pokemon-icon"
-                      src={typeImages[pokemon.type[0]]}
-                      alt="Pokemon Icon"
-                    />
-                    <img
-                      className="pokemon-image"
-                      src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${pokemon.id}.png`}
-                      alt={`Image of ${pokemon.name.english}`}
-                    />
-                    <h2 className="pokemon-name">{pokemon.name.english}</h2>
-                    <p className="pokemon-type">{pokemon.type[0]}</p>
-                    <Link to={`/pokemon/${pokemon.id}`}>
-                      <button className="view-more-button">Explore Pokemon</button>
-                    </Link>
-                  </div>
-                ))}
-
             </div>
           </div>
           <div id="blur-area"></div>
@@ -208,16 +177,10 @@ const Pokemonlist = () => {
       </div>
     ))}
 </div>
-
           )}
         </section>
       </div>
       {totalPages > 1 && (
-
-        <div>
-      </div>
-      
-
        <div className={loading ? "hidden" : "pagination-container"}>
        <button
          className="pagination-button"
@@ -238,7 +201,6 @@ const Pokemonlist = () => {
        </button>
      </div>
      
-
       )}
     </div>
   );
