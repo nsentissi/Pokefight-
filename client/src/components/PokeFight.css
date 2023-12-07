@@ -16,6 +16,7 @@
   
   .spinner {
     animation: spin 2s linear infinite;
+    
   }
   
   @keyframes spring {
@@ -35,7 +36,9 @@
   }
   
   .spring-box {
-    animation: spring 1s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite;
+    /* animation: spring 1s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite; */
+    animation: fightAnimation 1s infinite;
+    transition: filter 0.3s ease-in-out;
   }
   
   .op {
@@ -44,3 +47,17 @@
   }
   
 
+  @keyframes fightAnimation {
+    0%, 100% {
+      transform: scale(1) translateX(0) rotate(0deg);
+      filter: brightness(150%);
+    }
+    25%, 75% {
+      transform: scale(1.1) translateX(-5px) rotate(-5deg);
+      filter: brightness(120%);
+    }
+    50% {
+      transform: scale(1.1) translateX(5px) rotate(5deg);
+      filter: brightness(120%);
+    }
+  }

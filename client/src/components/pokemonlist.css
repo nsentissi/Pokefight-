@@ -1,7 +1,7 @@
 .pokelist {
   display: flex;
-  justify-content: space-between;
-
+  flex-direction: column;
+  align-items: center;
 }
 
 .listPoke {
@@ -9,12 +9,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-bottom: 3rem;
 }
 
 .inputArea {
-  margin-top: 10rem;
   display: flex;
-  flex-direction: column;
   gap: 3rem;
 }
 
@@ -24,15 +23,76 @@
 
 .inputPoke {
   color: white;
-  border: 2px solid #8707ff;
+  border: 2px solid #d6c818;
   border-radius: 10px;
-  padding: 10px 25px;
+  padding: 10px 65px;
   background: transparent;
-  max-width: 190px;
+  max-width: 290px;
 }
 
 .input:active {
-  box-shadow: 2px 2px 15px #8707ff inset;
+  box-shadow: 2px 2px 15px #d6c818 inset;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.card-area {
+  margin-left: 16rem;
+  margin-top: 3rem;
+}
+
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  
+}
+
+.pagination-button {
+  background: linear-gradient(20deg, #4f1919, yellow);
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 15px;
+  margin: 0 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.pagination-button:disabled {
+  background-color: #e0e0e0;
+  color: #888888;
+  cursor: not-allowed;
+  
+}
+
+.pagination-info {
+  margin: 0 10px;
+  font-size: 14px;
+  color: white;
+  display: inline-block;
+}
+
+.page-number {
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  margin: 0 5px;
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page-number.active {
+  background-color: #0056b3;
 }
 
 

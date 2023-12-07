@@ -77,6 +77,7 @@ const PokeFight = () => {
             } else {
               updatedLeaderboard.push({
                 name: selectedPokemon.name.english,
+                id: +id,
                 wins: 1,
                 losses: 0,
               });
@@ -84,6 +85,7 @@ const PokeFight = () => {
             axios
               .post("http://localhost:3001/pokemon/leaderboard", {
                 name: selectedPokemon.name.english,
+                id: +id,
                 wins: 1,
                 losses: 0,
               })
@@ -106,6 +108,7 @@ const PokeFight = () => {
             } else {
               updatedLeaderboard.push({
                 name: selectedPokemon.name.english,
+                id: +id,
                 wins: 0,
                 losses: 1,
               });
@@ -114,6 +117,7 @@ const PokeFight = () => {
               .post(
                 "http://localhost:3001/pokemon/leaderboard",
                 { name: selectedPokemon.name.english,
+                  id: +id,
                   wins: 0,
                   losses: 1,}
               )
@@ -154,7 +158,7 @@ const PokeFight = () => {
     setBattleResult("");
   };
 
-  return (
+   return (
     <div>
       {loading ? (
         <p>Loading...</p>
@@ -169,11 +173,13 @@ const PokeFight = () => {
               >
                 {selectedPokemon.name.english}
               </h2>
+              <div>
               <img
                 className={`pokemon-image ${battleLoading ? "spring-box" : ""}`}
                 src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${selectedPokemon.id}.png`}
                 alt={`Image of ${selectedPokemon.name.english}`}
               />
+              </div>
               {/* updated the code logic for the stats with the bar colors */}
               <div>
                 <div className="stats">
@@ -196,14 +202,13 @@ const PokeFight = () => {
             </div>
             <div className="btn-results">
               <button className="btn-battle" onClick={handleBattleStart}>
-                Start!
+                Fight!
               </button>
               {battleResult && <p>{battleResult}</p>}
+              <button className="btn-rematch" onClick={handleRematch}>
+                <span>Rematch?</span>
+              </button>
             </div>
-            <div>
-              <button onClick={handleRematch}>Rematch!</button>
-            </div>
-
             <div className={`randomPokemon`}>
               <h2
                 className={`text-style text-${
@@ -213,39 +218,28 @@ const PokeFight = () => {
                 {opponentPokemon.name.english}
               </h2>
 
-              <div
-                className={`randomPokemon tipo-${
-                  opponentPokemon?.type && opponentPokemon.type[0].toLowerCase()
-                }`}
-              >
-                <h2>{opponentPokemon.name.english}</h2>
-                <img
-                  className={`pokemon-image ${
-                    battleLoading ? "spring-box" : ""
-                  }`}
-                  src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${opponentPokemon.id}.png`}
-                  alt={`Image of ${opponentPokemon.name.english}`}
-                />
-                {/* updated the code logic for the stats with the bar colors */}
-                <div>
-                  <div className="stats">
-                    {Object.entries(opponentPokemon.base).map(
-                      ([key, value]) => (
-                        <div key={key}>
-                          <strong>{key}:</strong>
-                          <div className="stat-bar-container">
-                            <div
-                              className="stat-bar"
-                              style={{
-                                width: `${value}%`,
-                                backgroundColor: getStatColor(value),
-                              }}
-                            ></div>
-                          </div>
-                        </div>
-                      )
-                    )}
-                  </div>
+              <img
+                className={`pokemon-image ${battleLoading ? "spring-box" : ""}`}
+                src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${opponentPokemon.id}.png`}
+                alt={`Image of ${opponentPokemon.name.english}`}
+              />
+              {/* updated the code logic for the stats with the bar colors */}
+              <div>
+                <div className="stats">
+                  {Object.entries(opponentPokemon.base).map(([key, value]) => (
+                    <div key={key}>
+                      <strong>{key}:</strong>
+                      <div className="stat-bar-container">
+                        <div
+                          className="stat-bar"
+                          style={{
+                            width: `${value}%`,
+                            backgroundColor: getStatColor(value),
+                          }}
+                        ></div>
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>

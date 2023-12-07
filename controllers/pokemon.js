@@ -1,6 +1,6 @@
 const express = require("express");
 const PokemonList = require("../data.json");
-const leaderboard = require("../models/leaderboard");
+const leader = require("../models/leader");
 
 const getAll = (req, res) => {
   try {
@@ -73,12 +73,12 @@ const getPokeinfo = (req, res) => {
 
 const createStat = async (req, res) => {
   try {
-    const { name, wins, losses } = req.body;
-    const findPokemon = await leaderboard.findOne({ name });
+    const { name, id,  wins, losses } = req.body;
+    const findPokemon = await leader.findOne({ name });
     if (findPokemon) {
-      await leaderboard.updateOne({ name }, { $inc: { wins, losses } });
+      await leader.updateOne({name}, { $inc: { wins, losses } });
     } else {
-      const user = await leaderboard.create({ name, wins, losses });
+      const user = await leader.create({ name, wins, losses, id });
     }
     return res.status(201).json({});
   } catch (error) {
@@ -89,7 +89,7 @@ const createStat = async (req, res) => {
 
 const getStats = async (req, res) => {
   try {
-    const stats = await leaderboard.find({});
+    const stats = await leader.find({});
     res.json(stats);
   } catch (error) {
     console.log(error);

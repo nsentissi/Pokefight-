@@ -13,7 +13,7 @@ import Metal from "../assets/Metal.png";
 import Psychic from "../assets/Psychic.png";
 import Water from "../assets/Water.png";
 import Bug from "../assets/Bug.png";
-import Normal from "../assets/Bug.png";
+import Normal from "../assets/Normal.png";
 import Poison from "../assets/Poison.png";
 import Ground from "../assets/Ground.png";
 import Rock from "../assets/Rock.png";
@@ -89,11 +89,12 @@ const Pokemonlist = () => {
             onChange={(e) => setSearchTerm(e.target.value)}
             value={searchTerm}
             className="inputPoke"
-            placeholder="Search for your favorite pokemon!"
+            placeholder="Search for your pokemon!"
           />
           <select
             value={selectedType}
             onChange={(e) => setSelectedType(e.target.value)}
+            className="inputPoke"
           >
             <option value="">All Types</option>
             <option value="Fire">Fire</option>
@@ -120,6 +121,7 @@ const Pokemonlist = () => {
             <PokeLoader />
           ) : (
             <div className="PokeCard">
+
   {pokemons
     .filter((pokemon) =>
       pokemon.name.english
@@ -140,6 +142,36 @@ const Pokemonlist = () => {
             <div className="marquee__inner">
               <strong>{pokemon.name.english}</strong>
               <span className="viper">{pokemon.name.english} {pokemon.name.english} {pokemon.name.english} {pokemon.name.english} {pokemon.name.english}</span>
+
+              {pokemons
+                .filter((pokemon) =>
+                  pokemon.name.english
+                    .toLowerCase()
+                    .includes(searchTerm.toLowerCase())
+                )
+                .filter((pokemon) =>
+                  selectedType ? pokemon.type[0].includes(selectedType) : true
+                )
+                .map((pokemon) => (
+                  <div key={pokemon.id} className="pokemon-card">
+                    <img
+                      className="pokemon-icon"
+                      src={typeImages[pokemon.type[0]]}
+                      alt="Pokemon Icon"
+                    />
+                    <img
+                      className="pokemon-image"
+                      src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${pokemon.id}.png`}
+                      alt={`Image of ${pokemon.name.english}`}
+                    />
+                    <h2 className="pokemon-name">{pokemon.name.english}</h2>
+                    <p className="pokemon-type">{pokemon.type[0]}</p>
+                    <Link to={`/pokemon/${pokemon.id}`}>
+                      <button className="view-more-button">Explore Pokemon</button>
+                    </Link>
+                  </div>
+                ))}
+
             </div>
           </div>
           <div id="blur-area"></div>
@@ -181,9 +213,32 @@ const Pokemonlist = () => {
         </section>
       </div>
       {totalPages > 1 && (
+
         <div>
       </div>
       
+
+       <div className={loading ? "hidden" : "pagination-container"}>
+       <button
+         className="pagination-button"
+         disabled={currentPage === 1}
+         onClick={() => setCurrentPage((prevPage) => prevPage - 1)}
+       >
+         Previous Page
+       </button>
+       <span className="pagination-info">
+         Page {currentPage} of {totalPages}
+       </span>
+       <button
+         className="pagination-button"
+         disabled={currentPage === totalPages}
+         onClick={() => setCurrentPage((prevPage) => prevPage + 1)}
+       >
+         Next Page
+       </button>
+     </div>
+     
+
       )}
     </div>
   );
