@@ -78,6 +78,7 @@ const PokeFight = () => {
             } else {
               updatedLeaderboard.push({
                 name: selectedPokemon.name.english,
+                id: +id,
                 wins: 1,
                 losses: 0,
               });
@@ -85,6 +86,7 @@ const PokeFight = () => {
             axios
               .post("http://localhost:3001/pokemon/leaderboard", {
                 name: selectedPokemon.name.english,
+                id: +id,
                 wins: 1,
                 losses: 0,
               })
@@ -107,6 +109,7 @@ const PokeFight = () => {
             } else {
               updatedLeaderboard.push({
                 name: selectedPokemon.name.english,
+                id: +id,
                 wins: 0,
                 losses: 1,
               });
@@ -115,6 +118,7 @@ const PokeFight = () => {
               .post(
                 "http://localhost:3001/pokemon/leaderboard",
                 { name: selectedPokemon.name.english,
+                  id: +id,
                   wins: 0,
                   losses: 1,}
               )
