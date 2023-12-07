@@ -79,11 +79,6 @@ const PokemonDetails = () => {
             pokemon.type && pokemon.type[0].toLowerCase()
           }`}
         >
-          {/* <img
-            className="pokemon-badge"
-            src={typeImages[pokemon.type[0]]}
-            alt="Pokemon Icon"
-          /> */}
           <img
             className="pokemon-img"
             src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${id}.png`}
@@ -135,15 +130,15 @@ const PokemonDetails = () => {
             pokemon.type && pokemon.type[0].toLowerCase()
           }`}
         >
-              B A T T L E !
-    <div id="clip">
-        <div id="leftTop" className="corner"></div>
-        <div id="rightBottom" className="corner"></div>
-        <div id="rightTop" className="corner"></div>
-        <div id="leftBottom" className="corner"></div>
-    </div>
-    <span id="rightArrow" className="arrow"></span>
-    <span id="leftArrow" className="arrow"></span>{" "}
+          B A T T L E !
+          <div id="clip">
+            <div id="leftTop" className="corner"></div>
+            <div id="rightBottom" className="corner"></div>
+            <div id="rightTop" className="corner"></div>
+            <div id="leftBottom" className="corner"></div>
+          </div>
+          <span id="rightArrow" className="arrow"></span>
+          <span id="leftArrow" className="arrow"></span>{" "}
         </button>
       </Link>
     </div>
