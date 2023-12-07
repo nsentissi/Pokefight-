@@ -182,21 +182,6 @@ const Pokemonlist = () => {
       </div>
       {totalPages > 1 && (
         <div>
-        <button className="btn-pag"
-          disabled={currentPage === 1}
-          onClick={() => setCurrentPage((prevPage) => prevPage - 1)}
-        >
-          <span className="main-text">← Previous Page </span>
-        </button>
-        <span>
-          Page {currentPage} of {totalPages}
-        </span>
-        <button className="btn-pag"
-          disabled={currentPage === totalPages}
-          onClick={() => setCurrentPage((prevPage) => prevPage + 1)}
-        >
-          <span className="main-text">Next Page →</span>
-        </button>
       </div>
       
       )}
