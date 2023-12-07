@@ -128,15 +128,24 @@ const Pokemonlist = () => {
                   selectedType ? pokemon.type[0].includes(selectedType) : true
                 )
                 .map((pokemon) => (
-                  <div key={pokemon.id} className={`card-border border-${pokemon.type && pokemon.type[0].toLowerCase()}`}>
-                    <div className={`card-bg bg-${pokemon.type && pokemon.type[0].toLowerCase()}`}>
+                  <div
+                    key={pokemon.id}
+                    className={`card-border border-${
+                      pokemon.type && pokemon.type[0].toLowerCase()
+                    }`}
+                  >
+                    <div
+                      className={`card-bg bg-${
+                        pokemon.type && pokemon.type[0].toLowerCase()
+                      }`}
+                    >
                       {/* <strong id="text-border">{pokemon.name.english}</strong> */}
                       <div id="text-ext">
                         {/* <p className="pokemon-type">{pokemon.type[0]}</p> */}
                       </div>
                       <div className="marquee">
                         <div className="marquee__inner">
-                        <h3 className="pokeName">{pokemon.name.english}</h3>
+                          <h3 className="pokeName">{pokemon.name.english}</h3>
                           <span className="viper">
                             {pokemon.name.english} {pokemon.name.english}{" "}
                             {pokemon.name.english} {pokemon.name.english}{" "}
@@ -173,9 +182,7 @@ const Pokemonlist = () => {
                         {/* <h2 className="pokemon-name">{pokemon.name.english}</h2>
                         <p className="pokemon-type">{pokemon.type[0]}</p> */}
                         <Link to={`/pokemon/${pokemon.id}`}>
-                          <button className="view-more-button">
-                            Discover Pokemon
-                          </button>
+                          <button className="view-more-button">Details</button>
                         </Link>
                       </div>
                     </div>
