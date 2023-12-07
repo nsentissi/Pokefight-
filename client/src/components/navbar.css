@@ -16,25 +16,26 @@
 .navbar {
   position: fixed;
   top: 0;
-  left: 40%;
+  right: 10px;
+  left: 10%;
   width: 30%;
-  height: 5%;
+  max-width: 800px;
+  height: 5vh;
   background:#222;
   border-radius: 8px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   z-index: 2;
+  margin: 0 auto;
 }
 
 .navbar a {
-  position: relative;
-  display: inline-block;
   font-size: 1em;
   font-weight: 500;
   color: #fff;
   text-decoration: none;
-  padding: 0 23px;
+  padding: 0 2vw;
   z-index: 1;
 }
 
@@ -42,7 +43,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 95px;
+  width: 23%;
   height: 100%;
   background: linear-gradient(20deg, #4f1919, yellow);
   border-radius: 8px;
@@ -50,11 +51,33 @@
 }
 
 .navbar a:nth-child(1):hover~span {
-  left: 23%;
+  left: 0%;
 }
 .navbar a:nth-child(2):hover~span {
-  left: 43%;
+  left: 38%;
 }
 .navbar a:nth-child(3):hover~span {
-  left: 62%;
+  left: 78%;
 }
+
+@media screen and (max-width: 600px) {
+  .navbar {
+    width: 90%; 
+  }
+
+  .navbar a {
+    font-size: 0.8em; 
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .navbar {
+    width: 80%; 
+    max-width: 800px; 
+  }
+
+  .navbar a {
+    font-size: 1.2em; 
+  }
+}
+

@@ -135,7 +135,7 @@ const Pokemonlist = () => {
         <div className="card-bg">
           {/* <strong id="text-border">{pokemon.name.english}</strong> */}
           <div id="text-ext">
-            <p className="pokemon-type">{pokemon.type[0]}</p>
+            {/* <p className="pokemon-type">{pokemon.type[0]}</p> */}
           </div>
           <div className="marquee">
             <div className="marquee__inner">

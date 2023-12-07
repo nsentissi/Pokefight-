@@ -109,12 +109,12 @@
   background: transparent;
   backdrop-filter: blur(40px);
   border-radius: 0px 2rem;
-  background-image: radial-gradient(#2121218a, #212121cc), linear-gradient(35deg,rgb(0, 255, 213) 62%,skyblue 100%);
+  /* background-image: radial-gradient(#2121218a, #212121cc), linear-gradient(35deg,rgb(0, 255, 213) 62%,skyblue 100%); */
   background-origin: border-box;
   background-clip: content-box, border-box;
-  box-shadow: 1px 1px 3rem skyblue;
+  /* box-shadow: 1px 1px 3rem skyblue; */
   transition: all 0.5s;
-  animation: pulse_3011 3s infinite;
+  /* animation: pulse_3011 3s infinite; */
   margin-top: 20px;
   margin-bottom: 20px;
 }
@@ -198,16 +198,16 @@ strong {
   animation-play-state: running;
 }
 
-#blur-area {
+/* #blur-area {
   display: block;
   position: absolute;
   z-index: -1;
   inset: 0;
   /* border: 1px solid rgb(12, 255, 65); */
-  border-radius: 0 1rem;
+  /* border-radius: 0 1rem;
   backdrop-filter: blur(3px);
   background: linear-gradient(90deg, transparent  0%, #00000044 100%);
-}
+} */ 
 
 .viper {
   display: flex;
@@ -333,7 +333,7 @@ svg {
 
 @keyframes pulse_3011 {
   0% {
-    box-shadow: 0 0 1rem #57ff95;
+    box-shadow: 0 0 1rem #57ff95; 
   }
 
   70% {
@@ -343,7 +343,7 @@ svg {
   100% {
     box-shadow: 0 0 1rem #57ff95;
   }
-}
+} 
 
 @keyframes slide {
   0% {
