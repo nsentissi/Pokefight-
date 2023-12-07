@@ -9,9 +9,8 @@
 .leaderboard {
   color: white;
   margin-top: 3rem;
-  width: 800px;
+  width: 900px;
   text-shadow: 2px 2px black;
-
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.809),
@@ -25,6 +24,13 @@
   border-bottom: 1px solid #ddd;
 }
 
+.gif-name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
 table {
   width: inherit;
   border-collapse: separate;
@@ -32,7 +38,11 @@ table {
 
 thead tr {
   background-color: #dddddd76;
-  font-size: large;
+  font-size: 20px;
+}
+
+td {
+  font-size: 18px;
 }
 
 th,

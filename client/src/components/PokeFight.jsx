@@ -114,13 +114,12 @@ const PokeFight = () => {
               });
             }
             axios
-              .post(
-                "http://localhost:3001/pokemon/leaderboard",
-                { name: selectedPokemon.name.english,
-                  id: +id,
-                  wins: 0,
-                  losses: 1,}
-              )
+              .post("http://localhost:3001/pokemon/leaderboard", {
+                name: selectedPokemon.name.english,
+                id: +id,
+                wins: 0,
+                losses: 1,
+              })
               .then((response) => {
                 console.log(
                   "Leaderboard updated on the server:",
@@ -158,7 +157,7 @@ const PokeFight = () => {
     setBattleResult("");
   };
 
-   return (
+  return (
     <div>
       {loading ? (
         <p>Loading...</p>
@@ -174,11 +173,11 @@ const PokeFight = () => {
                 {selectedPokemon.name.english}
               </h2>
               <div>
-              <img
-                className={`pokemon-image ${battleLoading ? "spring-box" : ""}`}
-                src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${selectedPokemon.id}.png`}
-                alt={`Image of ${selectedPokemon.name.english}`}
-              />
+                <img
+                  className={`pokemon-img ${battleLoading ? "spring-box" : ""}`}
+                  src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${selectedPokemon.id}.png`}
+                  alt={`Image of ${selectedPokemon.name.english}`}
+                />
               </div>
               {/* updated the code logic for the stats with the bar colors */}
               <div>
@@ -219,7 +218,7 @@ const PokeFight = () => {
               </h2>
 
               <img
-                className={`pokemon-image ${battleLoading ? "spring-box" : ""}`}
+                className={`pokemon-img ${battleLoading ? "spring-box" : ""}`}
                 src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${opponentPokemon.id}.png`}
                 alt={`Image of ${opponentPokemon.name.english}`}
               />
