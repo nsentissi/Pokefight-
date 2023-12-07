@@ -7,7 +7,9 @@ export default function NavBar() {
     <nav className="navbar">
         <Link to="/">Homepage</Link>
         <Link to="/pokemon">Pokemonlist</Link>
-        <Link to="/pokemon/leaderboard">Leaderboard</Link>
+
+        <Link to="pokemon/leaderboard">Leaderboard</Link>
+
         <span></span>
     </nav>
 );

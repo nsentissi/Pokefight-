@@ -1,7 +1,5 @@
 body {
-
-
-  font-family: 'Comic Neue', cursive;
+    font-family: 'Comic Neue', cursive;
 
   background-color: #f0f0f0;
   background-image: url("https://preview.redd.it/pokemon-anniversary-wallpaper-5120x1440-v0-2zl712jin0ga1.png?width=3440&format=png&auto=webp&s=6f4d5b2ecbba15b48b6c3bc3bfc0d778b122f175");
@@ -32,7 +30,7 @@ body {
 }
 
 .pokemon-image {
-  width: 70%;
+  width: 100%;
   height: 70%;
 }
 
@@ -180,6 +178,20 @@ body {
   text-shadow: 2px 2px black;
 }
 
+
+.btn-results p::after {
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* .btn-fight {
+  background-color: white;
+  border: 2px solid #f44336;
+  padding: 1rem;
+  border-radius: 10px;
+  margin: 10px 0 10px 0;
+
 .btn-battle {
   position: absolute;
   top: 46.7%;
@@ -192,10 +204,215 @@ body {
   box-shadow: 6px 6px 10px -1px rgba(0, 0, 0, 0.15),
     2px 2px 5px 8px rgba(255, 255, 255, 0.7);
   border: 3px solid rgba(0, 0, 0, 0.714);
+
   cursor: pointer;
   transition: transform 0.5s;
   font-weight: bold;
-}
+} */
+
+
+/* .btn-battle {
+  border: 3px solid black;
+  padding: 1rem;
+  border-radius: 50%;
+  width: 60px;
+  margin: 10px 0 10px 0;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  transition: background-color 1s ease, color 1s ease;
+} */
+
+/* .btn-battle:hover {
+  background-color: rgba(0, 0, 0, 0.517);
+  border: 1px solid wheat;
+  color: white;
+  font-weight: bold;
+  font-size: 25px;
+  padding: 3rem;
+  letter-spacing: 4px;
+  font-style: italic;
+  width: auto;
+  border-radius: 50px;
+} */
+
+/* battle button */
+
+  /* battle button */
+
+  .btn-fight {
+    position: relative;
+    width: 11em;
+    height: 4em;
+    outline: none;
+    transition: 0.1s;
+    background-color: transparent;
+    border: none;
+    font-size: 13px;
+    font-weight: bold;
+    color: #ddebf0;
+  }
+  
+  #clip {
+    --color: #2761c3;
+    position: absolute;
+    top: 0;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    border: 5px double var(--color);
+    box-shadow: inset 0px 0px 15px #195480;
+    -webkit-clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+  }
+  
+  .arrow {
+    position: absolute;
+    transition: 0.2s;
+    background-color: #2761c3;
+    top: 35%;
+    width: 11%;
+    height: 30%;
+  }
+  
+  #leftArrow {
+    left: -13.5%;
+    -webkit-clip-path: polygon(100% 0, 100% 100%, 0 50%);
+  }
+  
+  #rightArrow {
+    -webkit-clip-path: polygon(100% 49%, 0 0, 0 100%);
+    left: 102%;
+  }
+  
+  .btn-fight:hover #rightArrow {
+    background-color: #27c39f;
+    left: -15%;
+    animation: 0.6s ease-in-out both infinite alternate rightArrow8;
+  }
+  
+  .btn-fight:hover #leftArrow {
+    background-color: #27c39f;
+    left: 103%;
+    animation: 0.6s ease-in-out both infinite alternate leftArrow8;
+  }
+  
+  .corner {
+    position: absolute;
+    width: 4em;
+    height: 4em;
+    background-color: #2761c3;
+    box-shadow: inset 1px 1px 8px #2781c3;
+    transform: scale(1) rotate(45deg);
+    transition: 0.2s;
+  }
+  
+  #rightTop {
+    top: -1.98em;
+    left: 91%;
+  }
+  
+  #leftTop {
+    top: -1.96em;
+    left: -3.0em;
+  }
+  
+  #leftBottom {
+    top: 2.10em;
+    left: -2.15em;
+  }
+  
+  #rightBottom {
+    top: 45%;
+    left: 88%;
+  }
+  
+  .btn-fight:hover #leftTop {
+    animation: 0.1s ease-in-out 0.05s both changeColor8,
+    0.2s linear 0.4s both lightEffect8;
+  }
+  
+  .btn-fight:hover #rightTop {
+    animation: 0.1s ease-in-out 0.15s both changeColor8,
+    0.2s linear 0.4s both lightEffect8;
+  }
+  
+  .btn-fight:hover #rightBottom {
+    animation: 0.1s ease-in-out 0.25s both changeColor8,
+    0.2s linear 0.4s both lightEffect8;
+  }
+  
+  .btn-fight:hover #leftBottom {
+    animation: 0.1s ease-in-out 0.35s both changeColor8,
+    0.2s linear 0.4s both lightEffect8;
+  }
+  
+  .btn-fight:hover .corner {
+    transform: scale(1.25) rotate(45deg);
+  }
+  
+  .btn-fight:hover #clip {
+    animation: 0.2s ease-in-out 0.55s both greenLight8;
+    --color: #27c39f;
+  }
+  
+  @keyframes changeColor8 {
+    from {
+      background-color: #2781c3;
+    }
+  
+    to {
+      background-color: #27c39f;
+    }
+  }
+  
+  @keyframes lightEffect8 {
+    from {
+      box-shadow: 1px 1px 5px #27c39f;
+    }
+  
+    to {
+      box-shadow: 0 0 2px #27c39f;
+    }
+  }
+  
+  @keyframes greenLight8 {
+    from {
+    }
+  
+    to {
+      box-shadow: inset 0px 0px 32px #27c39f;
+    }
+  }
+  
+  @keyframes leftArrow8 {
+    from {
+      transform: translate(0px);
+    }
+  
+    to {
+      transform: translateX(10px);
+    }
+  }
+  
+  @keyframes rightArrow8 {
+    from {
+      transform: translate(0px);
+    }
+  
+    to {
+      transform: translateX(-10px);
+    }
+  }
+  
+  
+  
+
+
+
+
+
+
+
 
 .btn-battle:hover {
   box-shadow: inset 4px 4px 6px -1px rgba(0, 0, 0, 0.2),
@@ -254,6 +471,7 @@ body {
   content: "";
   background: inherit;
 }
+
 
 .btn-rematch:hover,
 .btn-rematch:focus {
