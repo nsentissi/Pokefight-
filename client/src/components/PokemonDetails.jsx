@@ -13,7 +13,7 @@ import Fairy from "../assets/Fairy.png";
 import Fighting from "../assets/Fighting.png";
 import Fire from "../assets/Fire.png";
 import Grass from "../assets/Grass.png";
-import Metal from "../assets/Metal.png";
+import Steel from "../assets/Steel.png";
 import Psychic from "../assets/Psychic.png";
 import Water from "../assets/Water.png";
 import Bug from "../assets/Bug.png";
@@ -38,7 +38,7 @@ const PokemonDetails = () => {
     Fighting,
     Fire,
     Grass,
-    Metal,
+    Steel,
     Psychic,
     Water,
     Bug,
