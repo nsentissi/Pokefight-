@@ -1,4 +1,3 @@
-import React from "react";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
@@ -121,56 +120,85 @@ const Pokemonlist = () => {
             <PokeLoader />
           ) : (
             <div className="PokeCard">
-              {pokemons
-                .filter((pokemon) =>
-                  pokemon.name.english
-                    .toLowerCase()
-                    .includes(searchTerm.toLowerCase())
-                )
-                .filter((pokemon) =>
-                  selectedType ? pokemon.type[0].includes(selectedType) : true
-                )
-                .map((pokemon) => (
-                  <div key={pokemon.id} className="pokemon-card">
-                    <img
-                      className="pokemon-icon"
-                      src={typeImages[pokemon.type[0]]}
-                      alt="Pokemon Icon"
-                    />
-                    <img
-                      className="pokemon-image"
-                      src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${pokemon.id}.png`}
-                      alt={`Image of ${pokemon.name.english}`}
-                    />
-                    <h2 className="pokemon-name">{pokemon.name.english}</h2>
-                    <p className="pokemon-type">{pokemon.type[0]}</p>
-                    <Link to={`/pokemon/${pokemon.id}`}>
-                      <button className="view-more-button">View More</button>
-                    </Link>
-                  </div>
-                ))}
+  {pokemons
+    .filter((pokemon) =>
+      pokemon.name.english
+        .toLowerCase()
+        .includes(searchTerm.toLowerCase())
+    )
+    .filter((pokemon) =>
+      selectedType ? pokemon.type[0].includes(selectedType) : true
+    )
+    .map((pokemon) => (
+      <div key={pokemon.id} className="card-border">
+        <div className="card-bg">
+          {/* <strong id="text-border">{pokemon.name.english}</strong> */}
+          <div id="text-ext">
+            <p className="pokemon-type">{pokemon.type[0]}</p>
+          </div>
+          <div className="marquee">
+            <div className="marquee__inner">
+              <strong>{pokemon.name.english}</strong>
+              <span className="viper">{pokemon.name.english} {pokemon.name.english} {pokemon.name.english} {pokemon.name.english} {pokemon.name.english}</span>
             </div>
+          </div>
+          <div id="blur-area"></div>
+          <div className="viper"><strong>{pokemon.name.english}</strong></div>
+          <div className="container-logo">
+            <div className="logo">
+              <div className="logo-inside"></div>
+            </div>
+          </div>
+          <div className="first"></div>
+          <div className="second"></div>
+          <div className="mist-container">
+            <div className="mist"></div>
+          </div>
+          <svg></svg>
+          <div className="card-content">
+            <img
+              className="pokemon-icon"
+              src={typeImages[pokemon.type[0]]}
+              alt="Pokemon Icon"
+            />
+            <img
+              className="pokemon-image"
+              src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${pokemon.id}.png`}
+              alt={`Image of ${pokemon.name.english}`}
+            />
+            <h2 className="pokemon-name">{pokemon.name.english}</h2>
+            <p className="pokemon-type">{pokemon.type[0]}</p>
+            <Link to={`/pokemon/${pokemon.id}`}>
+              <button className="view-more-button">View More</button>
+            </Link>
+          </div>
+        </div>
+      </div>
+    ))}
+</div>
+
           )}
         </section>
       </div>
       {totalPages > 1 && (
         <div>
-          <button
-            disabled={currentPage === 1}
-            onClick={() => setCurrentPage((prevPage) => prevPage - 1)}
-          >
-            Previous Page
-          </button>
-          <span>
-            Page {currentPage} of {totalPages}
-          </span>
-          <button
-            disabled={currentPage === totalPages}
-            onClick={() => setCurrentPage((prevPage) => prevPage + 1)}
-          >
-            Next Page
-          </button>
-        </div>
+        <button className="btn-pag"
+          disabled={currentPage === 1}
+          onClick={() => setCurrentPage((prevPage) => prevPage - 1)}
+        >
+          <span className="main-text">← Previous Page </span>
+        </button>
+        <span>
+          Page {currentPage} of {totalPages}
+        </span>
+        <button className="btn-pag"
+          disabled={currentPage === totalPages}
+          onClick={() => setCurrentPage((prevPage) => prevPage + 1)}
+        >
+          <span className="main-text">Next Page →</span>
+        </button>
+      </div>
+      
       )}
     </div>
   );

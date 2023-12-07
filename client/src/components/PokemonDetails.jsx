@@ -1,4 +1,4 @@
-import React from "react";
+// import React from "react";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
@@ -135,7 +135,15 @@ const PokemonDetails = () => {
             pokemon.type && pokemon.type[0].toLowerCase()
           }`}
         >
-          Battle!{" "}
+              B A T T L E !
+    <div id="clip">
+        <div id="leftTop" className="corner"></div>
+        <div id="rightBottom" className="corner"></div>
+        <div id="rightTop" className="corner"></div>
+        <div id="leftBottom" className="corner"></div>
+    </div>
+    <span id="rightArrow" className="arrow"></span>
+    <span id="leftArrow" className="arrow"></span>{" "}
         </button>
       </Link>
     </div>
