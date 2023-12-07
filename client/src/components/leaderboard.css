@@ -1,0 +1,52 @@
+.bg-board {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  height: auto;
+}
+
+.leaderboard {
+  color: white;
+  margin-top: 3rem;
+  width: 800px;
+  text-shadow: 2px 2px black;
+
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.809),
+    0 6px 20px rgba(245, 241, 241, 0.921);
+}
+
+.leaderboard h2 {
+  text-align: center;
+  letter-spacing: 2px;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+table {
+  width: inherit;
+  border-collapse: separate;
+}
+
+thead tr {
+  background-color: #dddddd76;
+  font-size: large;
+}
+
+th,
+td {
+  padding: 15px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+}
+
+tbody tr:hover {
+  background-color: #b71d1d77;
+}
+
+tr td {
+  font-style: italic;
+}

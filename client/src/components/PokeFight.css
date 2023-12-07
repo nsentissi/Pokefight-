@@ -1,0 +1,45 @@
+.result-message {
+    color: white;
+    background: #000;
+    padding: 10px;
+    font-size: 24px;
+  }
+  
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .spinner {
+    animation: spin 2s linear infinite;
+  }
+  
+  @keyframes spring {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    25% {
+      transform: translateY(-10px);
+    }
+    50% {
+      transform: translateY(10px);
+    }
+    75% {
+      transform: translateY(-5px);
+    }
+  }
+  
+  .spring-box {
+    animation: spring 1s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite;
+  }
+  
+  .op {
+    width: 100px;
+    height: 100px;
+  }
+  
