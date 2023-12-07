@@ -31,9 +31,9 @@ const PokeFight = () => {
   };
 
   const getStatColor = (value) => {
-    if (value >= 80) {
+    if (value >= 60) {
       return "red";
-    } else if (value <= 50) {
+    } else if (value >= 80) {
       return "yellow";
     } else {
       return "dodgerblue";
@@ -78,6 +78,7 @@ const PokeFight = () => {
             } else {
               updatedLeaderboard.push({
                 name: selectedPokemon.name.english,
+                id: +id,
                 wins: 1,
                 losses: 0,
               });
@@ -85,6 +86,7 @@ const PokeFight = () => {
             axios
               .post("http://localhost:3001/pokemon/leaderboard", {
                 name: selectedPokemon.name.english,
+                id: +id,
                 wins: 1,
                 losses: 0,
               })
@@ -107,16 +109,19 @@ const PokeFight = () => {
             } else {
               updatedLeaderboard.push({
                 name: selectedPokemon.name.english,
+                id: +id,
                 wins: 0,
                 losses: 1,
               });
             }
             axios
-              .post("http://localhost:3001/pokemon/leaderboard", {
-                name: selectedPokemon.name.english,
-                wins: 0,
-                losses: 1,
-              })
+              .post(
+                "http://localhost:3001/pokemon/leaderboard",
+                { name: selectedPokemon.name.english,
+                  id: +id,
+                  wins: 0,
+                  losses: 1,}
+              )
               .then((response) => {
                 console.log(
                   "Leaderboard updated on the server:",
@@ -154,7 +159,7 @@ const PokeFight = () => {
     setBattleResult("");
   };
 
-  return (
+   return (
     <div>
       {loading ? (
         <p>Loading...</p>
@@ -169,11 +174,13 @@ const PokeFight = () => {
               >
                 {selectedPokemon.name.english}
               </h2>
+              <div>
               <img
                 className={`pokemon-image ${battleLoading ? "spring-box" : ""}`}
                 src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${selectedPokemon.id}.png`}
                 alt={`Image of ${selectedPokemon.name.english}`}
               />
+              </div>
               {/* updated the code logic for the stats with the bar colors */}
               <div>
                 <div className="stats">
@@ -205,7 +212,7 @@ const PokeFight = () => {
             </div>
             <div className={`randomPokemon`}>
               <h2
-                className={`text-${
+                className={`text-style text-${
                   opponentPokemon?.type && opponentPokemon.type[0].toLowerCase()
                 }`}
               >

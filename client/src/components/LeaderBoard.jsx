@@ -1,3 +1,4 @@
+
 import React from "react";
 import { useEffect, useState } from "react";
 import "./leaderboard.css";
@@ -44,7 +45,9 @@ const LeaderBoard = () => {
           <tbody>
             {leaderboardData?.map((entry) => (
               <tr key={entry._id}>
-                <td>{entry.name}</td>
+                <td>{entry.name}
+                 <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${entry.id}.gif`}  />
+                  </td>
                 <td>{entry.wins}</td>
                 <td>{entry.losses}</td>
               </tr>

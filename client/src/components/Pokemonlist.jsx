@@ -90,11 +90,12 @@ const Pokemonlist = () => {
             onChange={(e) => setSearchTerm(e.target.value)}
             value={searchTerm}
             className="inputPoke"
-            placeholder="Search for your favorite pokemon!"
+            placeholder="Search for your pokemon!"
           />
           <select
             value={selectedType}
             onChange={(e) => setSelectedType(e.target.value)}
+            className="inputPoke"
           >
             <option value="">All Types</option>
             <option value="Fire">Fire</option>
@@ -145,7 +146,7 @@ const Pokemonlist = () => {
                     <h2 className="pokemon-name">{pokemon.name.english}</h2>
                     <p className="pokemon-type">{pokemon.type[0]}</p>
                     <Link to={`/pokemon/${pokemon.id}`}>
-                      <button className="view-more-button">View More</button>
+                      <button className="view-more-button">Explore Pokemon</button>
                     </Link>
                   </div>
                 ))}
@@ -154,23 +155,26 @@ const Pokemonlist = () => {
         </section>
       </div>
       {totalPages > 1 && (
-        <div>
-          <button
-            disabled={currentPage === 1}
-            onClick={() => setCurrentPage((prevPage) => prevPage - 1)}
-          >
-            Previous Page
-          </button>
-          <span>
-            Page {currentPage} of {totalPages}
-          </span>
-          <button
-            disabled={currentPage === totalPages}
-            onClick={() => setCurrentPage((prevPage) => prevPage + 1)}
-          >
-            Next Page
-          </button>
-        </div>
+       <div className={loading ? "hidden" : "pagination-container"}>
+       <button
+         className="pagination-button"
+         disabled={currentPage === 1}
+         onClick={() => setCurrentPage((prevPage) => prevPage - 1)}
+       >
+         Previous Page
+       </button>
+       <span className="pagination-info">
+         Page {currentPage} of {totalPages}
+       </span>
+       <button
+         className="pagination-button"
+         disabled={currentPage === totalPages}
+         onClick={() => setCurrentPage((prevPage) => prevPage + 1)}
+       >
+         Next Page
+       </button>
+     </div>
+     
       )}
     </div>
   );
