@@ -1,11 +1,12 @@
 body {
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-family: 'Comic Neue', cursive;
   background-color: #f0f0f0;
   background-image: url("https://preview.redd.it/pokemon-anniversary-wallpaper-5120x1440-v0-2zl712jin0ga1.png?width=3440&format=png&auto=webp&s=6f4d5b2ecbba15b48b6c3bc3bfc0d778b122f175");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
+  
 }
 
 .pokemon-card {
@@ -16,7 +17,7 @@ body {
   width: 300px;
   text-align: center;
   position: relative;
-  padding-bottom: 0.5rem;
+  padding-bottom: 2.5rem;
 }
 
 .pokemon-icon {
@@ -50,6 +51,7 @@ body {
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s;
+  margin-top: 0.5rem;
 }
 
 .view-more-button:hover {
