@@ -106,13 +106,13 @@
   background: transparent;
   backdrop-filter: blur(40px);
   border-radius: 0px 2rem;
- /*  background-image: radial-gradient(#2121218a, #212121cc),
+  /*  background-image: radial-gradient(#2121218a, #212121cc),
     linear-gradient(35deg, rgb(0, 255, 213) 62%, skyblue 100%); */
   background-origin: border-box;
   background-clip: content-box, border-box;
   /* box-shadow: 1px 1px 3rem skyblue; */
   transition: all 0.5s;
- /*  animation: pulse_3011 3s infinite; */
+  /*  animation: pulse_3011 3s infinite; */
   margin-top: 20px;
   margin-bottom: 20px;
 }
@@ -139,150 +139,307 @@
 }
 
 .border-dark {
-  background-image: radial-gradient(#2121218a, #212121cc), linear-gradient(35deg, #451c72 62%, #721f93 100%);
+  background-image: radial-gradient(#2121218a, #212121cc),
+    linear-gradient(35deg, #451c72 62%, #721f93 100%);
 }
 
 .bg-dark {
-  background: linear-gradient(346.80deg, #2d123f 30%, #451c72 30%, rgba(255, 70, 84, 0) 30%, rgba(255, 70, 84, 0) 32%, #2d123f 32%, #2d123f 35%, transparent 35%),
-  linear-gradient(90deg, transparent 0%, #00000044 100%);
+  background: linear-gradient(
+      346.8deg,
+      #2d123f 30%,
+      #451c72 30%,
+      rgba(255, 70, 84, 0) 30%,
+      rgba(255, 70, 84, 0) 32%,
+      #2d123f 32%,
+      #2d123f 35%,
+      transparent 35%
+    ),
+    linear-gradient(90deg, transparent 0%, #00000044 100%);
 }
 
 .border-dragon {
-  background-image: radial-gradient(#2121218a, #212121cc), linear-gradient(35deg, #451c72 62%, #721f93 100%);
+  background-image: radial-gradient(#2121218a, #212121cc),
+    linear-gradient(35deg, #451c72 62%, #721f93 100%);
 }
 
 .bg-dragon {
-  background: linear-gradient(346.80deg, #2d123f 30%, #451c72 30%, rgba(255, 70, 84, 0) 30%, rgba(255, 70, 84, 0) 32%, #2d123f 32%, #2d123f 35%, transparent 35%),
-              linear-gradient(90deg, transparent 0%, #00000044 100%);
+  background: linear-gradient(
+      346.8deg,
+      #2d123f 30%,
+      #451c72 30%,
+      rgba(255, 70, 84, 0) 30%,
+      rgba(255, 70, 84, 0) 32%,
+      #2d123f 32%,
+      #2d123f 35%,
+      transparent 35%
+    ),
+    linear-gradient(90deg, transparent 0%, #00000044 100%);
 }
 
 .border-electric {
-  background-image: radial-gradient(#2121218a, #212121cc), linear-gradient(35deg, #ffd500 62%, #ffd500 100%);
+  background-image: radial-gradient(#2121218a, #212121cc),
+    linear-gradient(35deg, #ffd500 62%, #ffd500 100%);
 }
 
 .bg-electric {
-  background: linear-gradient(346.80deg, #c7a100 30%, #ffd500 30%, rgba(255, 70, 84, 0) 30%, rgba(255, 70, 84, 0) 32%, #c7a100 32%, #c7a100 35%, transparent 35%),
-              linear-gradient(90deg, transparent 0%, #00000044 100%);
+  background: linear-gradient(
+      346.8deg,
+      #c7a100 30%,
+      #ffd500 30%,
+      rgba(255, 70, 84, 0) 30%,
+      rgba(255, 70, 84, 0) 32%,
+      #c7a100 32%,
+      #c7a100 35%,
+      transparent 35%
+    ),
+    linear-gradient(90deg, transparent 0%, #00000044 100%);
 }
 
-
 .border-fairy {
-  background-image: radial-gradient(#2121218a, #212121cc), linear-gradient(35deg, #ff82ff 62%, #ff82ff 100%);
+  background-image: radial-gradient(#2121218a, #212121cc),
+    linear-gradient(35deg, #ff82ff 62%, #ff82ff 100%);
 }
 
 .bg-fairy {
-  background: linear-gradient(346.80deg, #ff50ff 30%, #ff82ff 30%, rgba(255, 70, 84, 0) 30%, rgba(255, 70, 84, 0) 32%, #ff50ff 32%, #ff50ff 35%, transparent 35%),
-              linear-gradient(90deg, transparent 0%, #00000044 100%);
+  background: linear-gradient(
+      346.8deg,
+      #ff50ff 30%,
+      #ff82ff 30%,
+      rgba(255, 70, 84, 0) 30%,
+      rgba(255, 70, 84, 0) 32%,
+      #ff50ff 32%,
+      #ff50ff 35%,
+      transparent 35%
+    ),
+    linear-gradient(90deg, transparent 0%, #00000044 100%);
 }
 
 .border-fighting {
-  background-image: radial-gradient(#2121218a, #212121cc), linear-gradient(35deg, #a8532e 62%, #d3754d 100%);
+  background-image: radial-gradient(#2121218a, #212121cc),
+    linear-gradient(35deg, #a8532e 62%, #d3754d 100%);
 }
 
 .bg-fighting {
-  background: linear-gradient(346.80deg, #7a3b23 30%, #a8532e 30%, rgba(255, 70, 84, 0) 30%, rgba(255, 70, 84, 0) 32%, #7a3b23 32%, #7a3b23 35%, transparent 35%),
-              linear-gradient(90deg, transparent 0%, #00000044 100%);
+  background: linear-gradient(
+      346.8deg,
+      #7a3b23 30%,
+      #a8532e 30%,
+      rgba(255, 70, 84, 0) 30%,
+      rgba(255, 70, 84, 0) 32%,
+      #7a3b23 32%,
+      #7a3b23 35%,
+      transparent 35%
+    ),
+    linear-gradient(90deg, transparent 0%, #00000044 100%);
 }
 
 .border-fire {
-  background-image: radial-gradient(#2121218a, #212121cc), linear-gradient(35deg, #ff7b00 62%, #ff7b00 100%);
+  background-image: radial-gradient(#2121218a, #212121cc),
+    linear-gradient(35deg, #ff7b00 62%, #ff7b00 100%);
 }
 
 .bg-fire {
-  background: linear-gradient(346.80deg, #ff3e00 30%, #ff7b00 30%, rgba(255, 70, 84, 0) 30%, rgba(255, 70, 84, 0) 32%, #ff3e00 32%, #ff3e00 35%, transparent 35%),
-              linear-gradient(90deg, transparent 0%, #00000044 100%);
+  background: linear-gradient(
+      346.8deg,
+      #ff3e00 30%,
+      #ff7b00 30%,
+      rgba(255, 70, 84, 0) 30%,
+      rgba(255, 70, 84, 0) 32%,
+      #ff3e00 32%,
+      #ff3e00 35%,
+      transparent 35%
+    ),
+    linear-gradient(90deg, transparent 0%, #00000044 100%);
 }
 
 .border-grass {
-  background-image: radial-gradient(#2121218a, #212121cc), linear-gradient(35deg, #00e600 62%, #00e600 100%);
+  background-image: radial-gradient(#2121218a, #212121cc),
+    linear-gradient(35deg, #00e600 62%, #00e600 100%);
 }
 
 .bg-grass {
-  background: linear-gradient(346.80deg, #007f00 30%, #00e600 30%, rgba(255, 70, 84, 0) 30%, rgba(255, 70, 84, 0) 32%, #007f00 32%, #007f00 35%, transparent 35%),
-              linear-gradient(90deg, transparent 0%, #00000044 100%);
+  background: linear-gradient(
+      346.8deg,
+      #007f00 30%,
+      #00e600 30%,
+      rgba(255, 70, 84, 0) 30%,
+      rgba(255, 70, 84, 0) 32%,
+      #007f00 32%,
+      #007f00 35%,
+      transparent 35%
+    ),
+    linear-gradient(90deg, transparent 0%, #00000044 100%);
 }
 
 .border-steel {
-  background-image: radial-gradient(#2121218a, #212121cc), linear-gradient(35deg, #a0a0a0 62%, #d9d9d9 100%);
+  background-image: radial-gradient(#2121218a, #212121cc),
+    linear-gradient(35deg, #a0a0a0 62%, #d9d9d9 100%);
 }
 
 .bg-steel {
-  background: linear-gradient(346.80deg, #666666 30%, #a0a0a0 30%, rgba(255, 70, 84, 0) 30%, rgba(255, 70, 84, 0) 32%, #666666 32%, #666666 35%, transparent 35%),
-              linear-gradient(90deg, transparent 0%, #00000044 100%);
+  background: linear-gradient(
+      346.8deg,
+      #666666 30%,
+      #a0a0a0 30%,
+      rgba(255, 70, 84, 0) 30%,
+      rgba(255, 70, 84, 0) 32%,
+      #666666 32%,
+      #666666 35%,
+      transparent 35%
+    ),
+    linear-gradient(90deg, transparent 0%, #00000044 100%);
 }
 
 .border-psychic {
-  background-image: radial-gradient(#2121218a, #212121cc), linear-gradient(35deg, #ff66ff 62%, #ff66ff 100%);
+  background-image: radial-gradient(#2121218a, #212121cc),
+    linear-gradient(35deg, #ff66ff 62%, #ff66ff 100%);
 }
 
 .bg-psychic {
-  background: linear-gradient(346.80deg, #ff33ff 30%, #ff66ff 30%, rgba(255, 70, 84, 0) 30%, rgba(255, 70, 84, 0) 32%, #ff33ff 32%, #ff33ff 35%, transparent 35%),
-              linear-gradient(90deg, transparent 0%, #00000044 100%);
+  background: linear-gradient(
+      346.8deg,
+      #ff33ff 30%,
+      #ff66ff 30%,
+      rgba(255, 70, 84, 0) 30%,
+      rgba(255, 70, 84, 0) 32%,
+      #ff33ff 32%,
+      #ff33ff 35%,
+      transparent 35%
+    ),
+    linear-gradient(90deg, transparent 0%, #00000044 100%);
 }
 
 .border-water {
-  background-image: radial-gradient(#2121218a, #212121cc), linear-gradient(35deg, #0066ff 62%, #0066ff 100%);
+  background-image: radial-gradient(#2121218a, #212121cc),
+    linear-gradient(35deg, #0066ff 62%, #0066ff 100%);
 }
 
 .bg-water {
-  background: linear-gradient(346.80deg, #003366 30%, #0066ff 30%, rgba(255, 70, 84, 0) 30%, rgba(255, 70, 84, 0) 32%, #003366 32%, #003366 35%, transparent 35%),
-              linear-gradient(90deg, transparent 0%, #00000044 100%);
+  background: linear-gradient(
+      346.8deg,
+      #003366 30%,
+      #0066ff 30%,
+      rgba(255, 70, 84, 0) 30%,
+      rgba(255, 70, 84, 0) 32%,
+      #003366 32%,
+      #003366 35%,
+      transparent 35%
+    ),
+    linear-gradient(90deg, transparent 0%, #00000044 100%);
 }
 
 .border-bug {
-  background-image: radial-gradient(#2121218a, #212121cc), linear-gradient(35deg, #4f4f2f 62%, #79794d 100%);
+  background-image: radial-gradient(#2121218a, #212121cc),
+    linear-gradient(35deg, #4f4f2f 62%, #79794d 100%);
 }
 
 .bg-bug {
-  background: linear-gradient(346.80deg, #3c3c26 30%, #4f4f2f 30%, rgba(255, 70, 84, 0) 30%, rgba(255, 70, 84, 0) 32%, #3c3c26 32%, #3c3c26 35%, transparent 35%),
-              linear-gradient(90deg, transparent 0%, #00000044 100%);
+  background: linear-gradient(
+      346.8deg,
+      #3c3c26 30%,
+      #4f4f2f 30%,
+      rgba(255, 70, 84, 0) 30%,
+      rgba(255, 70, 84, 0) 32%,
+      #3c3c26 32%,
+      #3c3c26 35%,
+      transparent 35%
+    ),
+    linear-gradient(90deg, transparent 0%, #00000044 100%);
 }
 
 .border-normal {
-  background-image: radial-gradient(#2121218a, #212121cc), linear-gradient(35deg, #999999 62%, #cccccc 100%);
+  background-image: radial-gradient(#2121218a, #212121cc),
+    linear-gradient(35deg, #999999 62%, #cccccc 100%);
 }
 
 .bg-normal {
-  background: linear-gradient(346.80deg, #737373 30%, #999999 30%, rgba(255, 70, 84, 0) 30%, rgba(255, 70, 84, 0) 32%, #737373 32%, #737373 35%, transparent 35%),
-              linear-gradient(90deg, transparent 0%, #00000044 100%);
+  background: linear-gradient(
+      346.8deg,
+      #737373 30%,
+      #999999 30%,
+      rgba(255, 70, 84, 0) 30%,
+      rgba(255, 70, 84, 0) 32%,
+      #737373 32%,
+      #737373 35%,
+      transparent 35%
+    ),
+    linear-gradient(90deg, transparent 0%, #00000044 100%);
 }
 
-
 .border-poison {
-  background-image: radial-gradient(#2121218a, #212121cc), linear-gradient(35deg, #aa00aa 62%, #d000d0 100%);
+  background-image: radial-gradient(#2121218a, #212121cc),
+    linear-gradient(35deg, #aa00aa 62%, #d000d0 100%);
 }
 
 .bg-poison {
-  background: linear-gradient(346.80deg, #800080 30%, #aa00aa 30%, rgba(255, 70, 84, 0) 30%, rgba(255, 70, 84, 0) 32%, #800080 32%, #800080 35%, transparent 35%),
-              linear-gradient(90deg, transparent 0%, #00000044 100%);
+  background: linear-gradient(
+      346.8deg,
+      #800080 30%,
+      #aa00aa 30%,
+      rgba(255, 70, 84, 0) 30%,
+      rgba(255, 70, 84, 0) 32%,
+      #800080 32%,
+      #800080 35%,
+      transparent 35%
+    ),
+    linear-gradient(90deg, transparent 0%, #00000044 100%);
 }
 
 .border-ground {
-  background-image: radial-gradient(#2121218a, #212121cc), linear-gradient(35deg, #996633 62%, #cc9966 100%);
+  background-image: radial-gradient(#2121218a, #212121cc),
+    linear-gradient(35deg, #996633 62%, #cc9966 100%);
 }
 
 .bg-ground {
-  background: linear-gradient(346.80deg, #664d33 30%, #996633 30%, rgba(255, 70, 84, 0) 30%, rgba(255, 70, 84, 0) 32%, #664d33 32%, #664d33 35%, transparent 35%),
-              linear-gradient(90deg, transparent 0%, #00000044 100%);
+  background: linear-gradient(
+      346.8deg,
+      #664d33 30%,
+      #996633 30%,
+      rgba(255, 70, 84, 0) 30%,
+      rgba(255, 70, 84, 0) 32%,
+      #664d33 32%,
+      #664d33 35%,
+      transparent 35%
+    ),
+    linear-gradient(90deg, transparent 0%, #00000044 100%);
 }
 
-
 .border-ice {
-  background-image: radial-gradient(#2121218a, #212121cc), linear-gradient(35deg, #99ccff 62%, #66b2ff 100%);
+  background-image: radial-gradient(#2121218a, #212121cc),
+    linear-gradient(35deg, #99ccff 62%, #66b2ff 100%);
 }
 
 .bg-ice {
-  background: linear-gradient(346.80deg, #cceeff 30%, #99ccff 30%, rgba(255, 70, 84, 0) 30%, rgba(255, 70, 84, 0) 32%, #cceeff 32%, #cceeff 35%, transparent 35%),
-              linear-gradient(90deg, transparent 0%, #00000044 100%);
+  background: linear-gradient(
+      346.8deg,
+      #cceeff 30%,
+      #99ccff 30%,
+      rgba(255, 70, 84, 0) 30%,
+      rgba(255, 70, 84, 0) 32%,
+      #cceeff 32%,
+      #cceeff 35%,
+      transparent 35%
+    ),
+    linear-gradient(90deg, transparent 0%, #00000044 100%);
 }
 
 .border-rock {
-  background-image: radial-gradient(#2121218a, #212121cc), linear-gradient(35deg, #b3b3b3 62%, #999999 100%);
+  background-image: radial-gradient(#2121218a, #212121cc),
+    linear-gradient(35deg, #b3b3b3 62%, #999999 100%);
 }
 
 .bg-rock {
-  background: linear-gradient(346.80deg, #666666 30%, #b3b3b3 30%, rgba(255, 70, 84, 0) 30%, rgba(255, 70, 84, 0) 32%, #666666 32%, #666666 35%, transparent 35%),
-              linear-gradient(90deg, transparent 0%, #00000044 100%);
+  background: linear-gradient(
+      346.8deg,
+      #666666 30%,
+      #b3b3b3 30%,
+      rgba(255, 70, 84, 0) 30%,
+      rgba(255, 70, 84, 0) 32%,
+      #666666 32%,
+      #666666 35%,
+      transparent 35%
+    ),
+    linear-gradient(90deg, transparent 0%, #00000044 100%);
 }
 
 .pokeName {
@@ -544,18 +701,17 @@ svg {
   width: 150px;
   height: 55px;
   border-radius: 45px;
-  border: none;
-  background-color: rgb(95, 196, 255);
+  background-color: rgba(95, 196, 255, 0);
   color: white;
+  font-size: 14px;
+  text-shadow: 2px 2px black;
+  letter-spacing: 2px;
   box-shadow: 0px 10px 10px rgb(210, 187, 253) inset,
-    0px 5px 10px rgba(5, 5, 5, 0.212), 0px -10px 10px rgb(67, 54, 255) inset;
+    0px 5px 10px rgba(5, 5, 5, 0.212), 0px -10px 10px rgba(0, 0, 0, 0.679) inset;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
-.view-more-button::before {
+/* .view-more-button::before {
   width: 70%;
   height: 2px;
   position: absolute;
@@ -563,16 +719,13 @@ svg {
   filter: blur(1px);
   top: 7px;
   border-radius: 50%;
-}
+} */
 
 .view-more-button::after {
   width: 70%;
-  height: 2px;
   position: absolute;
   background-color: rgba(250, 250, 250, 0.137);
-  content: "";
   filter: blur(1px);
-  bottom: 7px;
   border-radius: 50%;
 }
 
@@ -608,4 +761,12 @@ svg {
   100% {
     transform: scale3d(1, 1, 1);
   }
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
 }
