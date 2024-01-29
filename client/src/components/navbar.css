@@ -1,0 +1,82 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: skyblue;
+  margin: 0;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  right: 10px;
+  left: 3%;
+  width: 30%;
+  max-width: 800px;
+  height: 5vh;
+  background: #222222d5;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 2;
+  margin: 0 auto;
+}
+
+.navbar a {
+  font-size: 1em;
+  font-weight: 500;
+  color: #fff;
+  text-decoration: none;
+  padding: 0 2vw;
+  z-index: 1;
+}
+
+.navbar span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 23%;
+  height: 100%;
+  background: linear-gradient(20deg, #4f1919, yellow);
+  border-radius: 8px;
+  transition: 0.5s;
+}
+
+.navbar a:nth-child(1):hover ~ span {
+  left: 0%;
+}
+.navbar a:nth-child(2):hover ~ span {
+  left: 38%;
+}
+.navbar a:nth-child(3):hover ~ span {
+  left: 78%;
+}
+
+@media screen and (max-width: 600px) {
+  .navbar {
+    width: 90%; /* Adjust the navbar width for smaller screens */
+  }
+
+  .navbar a {
+    font-size: 0.8em; /* Decrease font size for smaller screens */
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .navbar {
+    width: 80%; /* Adjust the navbar width for larger screens */
+    max-width: 800px; /* Set a maximum width for larger screens */
+  }
+
+  .navbar a {
+    font-size: 1.2em; /* Increase font size for larger screens */
+  }
+}
