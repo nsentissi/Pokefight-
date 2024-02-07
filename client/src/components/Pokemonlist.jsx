@@ -20,6 +20,7 @@ import Ghost from "../assets/Ghost.png";
 import Ice from "../assets/Ice.png";
 import "./pokemonlist.css";
 import PokeLoader from "./PokeLoader";
+import axiosClient from "../../axiosClient";
 
 const Pokemonlist = () => {
   const [pokemons, setPokemons] = useState([]);
@@ -51,20 +52,15 @@ const Pokemonlist = () => {
 
   useEffect(() => {
     setLoading(true);
-
+  
     const timeoutId = setTimeout(async () => {
       try {
-        let endpoint;
-
-        if (searchTerm || selectedType) {
-          endpoint = `http://localhost:3001/pokemon/all`;
-        } else {
-          endpoint = `http://localhost:3001/pokemon?page=${currentPage}`;
-        }
-
-        const response = await axios.get(endpoint);
+        
+        let endpoint = searchTerm || selectedType ? `/pokemon/all` : `/pokemon?page=${currentPage}`;
+  
+        const response = await axiosClient.get(endpoint); 
         const { data, totalPages } = response.data;
-
+  
         setPokemons(data);
         setTotalPages(totalPages);
       } catch (error) {
@@ -74,7 +70,7 @@ const Pokemonlist = () => {
         setLoading(false);
       }
     }, 1000);
-
+  
     return () => clearTimeout(timeoutId);
   }, [currentPage, selectedType, searchTerm]);
 

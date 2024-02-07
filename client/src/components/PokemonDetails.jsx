@@ -23,6 +23,7 @@ import Ground from "../assets/Ground.png";
 import Rock from "../assets/Rock.png";
 import Ghost from "../assets/Ghost.png";
 import Ice from "../assets/Ice.png";
+import axiosClient from "../../axiosClient";
 
 const PokemonDetails = () => {
   const [pokemon, setPokemon] = useState({});
@@ -61,8 +62,8 @@ const PokemonDetails = () => {
   };
 
   useEffect(() => {
-    axios
-      .get(`http://localhost:3001/pokemon/${id}`)
+    axiosClient
+    .get(`/pokemon/${id}`) 
       .then((response) => {
         setPokemon(response.data);
       })

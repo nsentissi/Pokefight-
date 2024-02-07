@@ -1,6 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import "./leaderboard.css";
+import axiosClient from "../../axiosClient";
 
 const LeaderBoard = () => {
   const [leaderboardData, setLeaderboardData] = useState(null);
@@ -8,19 +9,9 @@ const LeaderBoard = () => {
   useEffect(() => {
     const fetchLeaderboard = async () => {
       try {
-        const response = await fetch(
-          "http://localhost:3001/pokemon/leaderboard"
-        );
-        if (response.ok) {
-          const data = await response.json();
-          setLeaderboardData(data);
-        } else {
-          console.error(
-            "Failed to fetch leaderboard:",
-            response.status,
-            response.statusText
-          );
-        }
+        const response = await axiosClient.get("/pokemon/leaderboard");
+
+        setLeaderboardData(response.data);
       } catch (error) {
         console.error("Error fetching leaderboard:", error);
       }

@@ -1,27 +1,27 @@
+require("dotenv/config");
+require("./db.js");
 const express = require("express");
+const cors = require("cors");
+const path = require("path");
+
+const router = require("./routes/pokemon.js");
+
 const app = express();
 const port = 3001;
-const cors = require("cors");
-const router = require("./routes/pokemon.js");
-const mongoose = require("mongoose");
-require("dotenv").config();
-
-app.use(cors());
-
+const corsOptions = {
+  origin: "http://localhost:5173",
+  credentials: true,
+};
+app.use(cors(corsOptions));
 app.use(express.json());
-app.use(cors());
-app.use("/pokemon", router);
+app.use(express.static(path.join(__dirname, "client", "dist")));
 
+app.use("/api/pokemon", router);
 
-
-mongoose.connect(process.env.CONNECTION_STRING).then(()=>{
-  
-  console.log('database connected')
-  
-  app.listen(port, () => {
-    console.log(`Server listening at http://localhost:${port}`);
-  });
-  
+app.get("/*", (req, res) => {
+  res.sendFile(path.join(__dirname, "client", "dist", "index.html"));
 });
 
-
+app.listen(port, () => {
+  console.log(`Server is running on http://localhost:${port}`);
+});

@@ -1,7 +1,8 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import axios from "axios";
+
 import "./PokeFight.css";
+import axiosClient from "../../axiosClient";
 
 const PokeFight = () => {
   const { id } = useParams();
@@ -14,13 +15,11 @@ const PokeFight = () => {
 
   const fetchData = async () => {
     try {
-      const response1 = await axios.get(`http://localhost:3001/pokemon/${id}`);
+      const response1 = await axiosClient.get(`/pokemon/${id}`);
       setSelectedPokemon(response1.data);
 
       const randomOpponentId = Math.floor(Math.random() * 809) + 1;
-      const response2 = await axios.get(
-        `http://localhost:3001/pokemon/${randomOpponentId}`
-      );
+      const response2 = await axiosClient.get(`/pokemon/${randomOpponentId}`);
       setOpponentPokemon(response2.data);
 
       setLoading(false);
@@ -82,8 +81,8 @@ const PokeFight = () => {
                 losses: 0,
               });
             }
-            axios
-              .post("http://localhost:3001/pokemon/leaderboard", {
+            axiosClient
+              .post("/pokemon/leaderboard", {
                 name: selectedPokemon.name.english,
                 id: +id,
                 wins: 1,
@@ -113,8 +112,8 @@ const PokeFight = () => {
                 losses: 1,
               });
             }
-            axios
-              .post("http://localhost:3001/pokemon/leaderboard", {
+            axiosClient
+              .post("/pokemon/leaderboard", {
                 name: selectedPokemon.name.english,
                 id: +id,
                 wins: 0,
