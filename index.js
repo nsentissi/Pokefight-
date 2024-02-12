@@ -10,7 +10,6 @@ const app = express();
 const port = 3001;
 const corsOptions = {
   origin: process.env.FRONTEND_URL,
-  credentials: true,
 };
 app.use(cors(corsOptions));
 app.use(express.json());
